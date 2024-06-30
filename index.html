@@ -329,26 +329,36 @@
             <p class="section-subtitle">How can you communicate?</p>
             <h6 class="section-title mb-5">Contact Me</h6>
             <!-- contact form -->
-            <form action="" class="contact-form col-md-10 col-lg-8 m-auto">
+            <form action="https://formsubmit.co/shafkatniloy119@gmail.com" method="POST" class="contact-form col-md-10 col-lg-8 m-auto">
                 <div class="form-row">
                     <div class="form-group col-sm-6">
-                        <input type="text" size="50" class="form-control" placeholder="Your Name" required>
+                        <input type="text" name="name"  class="form-control" placeholder="Your Name" required>
                     </div>
                     <div class="form-group col-sm-6">
-                        <input type="email" class="form-control" placeholder="Enter Email" requried>
+                        <input type="email" name="email" class="form-control" requried placeholder="Enter Email" >
                     </div>
                     <div class="form-group col-sm-12">
-                        <textarea name="comment" id="comment" rows="6" class="form-control"
+                        <input type="text" name="subject" rows="1" class="form-control"
+                            placeholder="Subject" required>
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <textarea name="message" rows="6" class="form-control"
                             placeholder="Write Something"></textarea>
                     </div>
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_next" value="https://shafkatniloy.netlify.app//thankyou.html">
+
+
+
+                   
                     <div class="form-group col-sm-12 mt-3">
-                        <input type="submit" value="Send Message" class="btn btn-outline-primary rounded">
+                        <button type="submit"  class="btn btn-outline-primary rounded" >Send Message</button> 
                     </div>
                 </div>
             </form><!-- end of contact form -->
         </div><!-- end of container -->
     </section><!-- end of contact section -->
-
 
 <!-- new social media -->
 
@@ -376,7 +386,7 @@
             </div>
             <div class="button" onclick="window.location.href='https://github.com/shafkatniloy';">
               <div class="icon">
-                <i class="fab fa-github"></i>
+                <i class="fab fa-github-alt"></i>
               </div>
               <span>Github</span>
             </div>
