@@ -172,3 +172,77 @@ body {
   color: #000;
   font-weight: bold;
 }
+
+/* EDUCARD */ 
+
+
+/* Card container */
+.card-container {
+  display: flex;
+  gap: 100px; /* Space between cards */
+}
+.card-container a {
+  text-decoration: none; /* Remove default underline */
+}
+.card {
+  box-sizing: border-box;
+  width: 200px;
+  height: 254*1.2px;
+  background: rgba(217, 217, 217, 0.58);
+  border: 1px solid white;
+  box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(6px);
+  border-radius: 17px;
+  cursor: pointer;
+  transition: all 0.5s;
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  justify-content: space-around; /* Even spacing between items */
+  align-items: center; /* Center-align all content */
+  text-align: center; /* Center-align text */
+  user-select: none;
+  font-weight: bolder;
+  color: black;
+  padding: 20px; /* Add padding for spacing inside the card */
+  box-sizing: border-box;
+}
+.card-logo {
+  width: 100px; /* Adjust size as needed */
+  height: auto; /* Maintain aspect ratio */
+  margin-bottom: 10px; /* Space below the image */
+  border-radius: 50%; /* Optional: make the image circular */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: add a subtle shadow */
+}
+
+.card:hover {
+  border: 1px solid black;
+  transform: scale(1.05);
+}
+
+.card:active {
+  transform: scale(0.95) rotateZ(1.7deg);
+}
+
+/* Optional: Specific styling for elements inside the card */
+.card .icon {
+  margin-bottom: 7px; /* Add spacing below the icon */
+}
+
+.card strong {
+  font-size: .8rem; /* Adjust size if necessary */
+  font-weight: bold;
+  display: block; /* Makes the text block-level so it can align properly */
+  margin-bottom: 10px; /* Ensures spacing between text and other elements */
+  text-align: center; /* Centers the text */
+}
+
+.card .card__body {
+  font-size: 0.9rem; /* Adjust body text size */
+  color: #555; /* Subtle text color */
+  margin-bottom: 10px;
+}
+
+.card span {
+  font-size: 0.8rem;
+  color: #888; /* Optional: lighter text color */
+}
