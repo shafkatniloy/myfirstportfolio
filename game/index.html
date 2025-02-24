@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catch the Falling Object</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button id="backButton" onclick="goBack()">🔙 Back</button>
+    <h1>Catch the Falling Object!</h1>
+    <div id="container">
+        <div id="gameContainer">
+            <div id="basket"></div>
+            <div id="fallingObject"></div>
+        </div>
+        <div id="instructions">
+            <h2>How to Play 🎮</h2>
+            <p>Use the arrow keys to move the basket:</p>
+            <div class="controls">
+                <img src="left.jpg" alt="Left Arrow"> Move Left  
+                <br>
+                <img src="right.jpg" alt="Right Arrow"> Move Right  
+            </div>
+            <p>Catch the falling objects to score points!</p>
+            <img src="catch-example.png" alt="Catch Example" class="example">
+        </div>
+    </div>
+    <p>Score: <span id="score">0</span></p>
+    <button id="restartButton" onclick="restartGame()">🔄 Restart Game</button>
+    <script src="script.js"></script>
+</body>
+</html>
