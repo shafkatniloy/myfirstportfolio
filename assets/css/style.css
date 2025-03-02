@@ -246,3 +246,19 @@ body {
   font-size: 0.8rem;
   color: #888; /* Optional: lighter text color */
 }
+
+
+/*   responsive  */
+@media (max-width: 600px) {
+  .card-container {
+    flex-direction: column; /* Stack cards vertically */
+    align-items: center; /* Center-align cards */
+    gap: 15px; /* Reduce space between cards */
+  }
+
+  .card {
+    width: 90%; /* Take up most of the screen width */
+    max-width: 300px; /* Set a max width to avoid oversized cards */
+    transform: none; /* Prevent hover scaling issues on touch devices */
+  }
+}
