@@ -1,18 +1,4 @@
-/*!
-=========================================================
-* Meyawo Landing page
-=========================================================
 
-* Copyright: 2019 DevCRUD (https://devcrud.com)
-* Licensed: (https://devcrud.com/licenses)
-* Coded by www.devcrud.com
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
-// smooth scroll
 $(document).ready(function () {
     $(".navbar .nav-link").on('click', function (event) {
 
@@ -42,7 +28,8 @@ $(document).ready(function () {
     const images = [
         'assets/imgs/m4.jpg',
         'assets/imgs/m1.jpg',
-        'assets/imgs/m3.png'
+        'assets/imgs/m3.png',
+        'assets/imgs/m5.png'
     ];
 
     let currentIndex = 0;
@@ -64,6 +51,6 @@ $(document).ready(function () {
                 updateDots(currentIndex);
                 $aboutImg.removeClass('fade-out');
             }, 500); // Wait for fade out transition
-        }, 3000); // Change every 3 seconds
+        }, 4000); // Change every 4 seconds
     }
 });
