@@ -102,6 +102,22 @@ Then open [http://localhost:5500](http://localhost:5500) in your browser.
 
 ---
 
+## 🚀 Deployment & Continuous Integration (Netlify)
+
+The portfolio is hosted on [Netlify](https://www.netlify.com/) at [shafkatniloy.netlify.app](https://shafkatniloy.netlify.app).
+
+> [!IMPORTANT]
+> **Netlify Deployment Branch:**
+> Netlify is configured to watch and deploy from the **`master`** branch.
+> When pushing updates from your local `main` branch, always push to both `main` and `master` to trigger immediate live deployment:
+>
+> ```bash
+> git push origin main && git push origin main:master
+> ```
+> *(Tip: You can also update the "Production branch" setting to `main` in Netlify Dashboard $\rightarrow$ **Site configuration** $\rightarrow$ **Build & deploy** $\rightarrow$ **Continuous deployment** $\rightarrow$ **Branches**).*
+
+---
+
 ## Contact
 
 - 📧 **Email:** shafkatniloy119@gmail.com

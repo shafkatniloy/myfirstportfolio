@@ -73,3 +73,14 @@ myfirstportfolio/
    - Timed auto-play and clickable manual dot navigation for `#aboutImage`
 5. The contact form posts to FormSubmit, redirecting upon success to `thankyou.html`.
 6. Standalone browser game runs from `game/index.html`.
+
+---
+
+## Deployment & CI/CD Pipeline
+
+- **Hosting Platform:** Netlify ([shafkatniloy.netlify.app](https://shafkatniloy.netlify.app))
+- **Monitored Branch:** `master` (synchronized with `main`)
+- **Deployment Command:**
+  ```bash
+  git push origin main && git push origin main:master
+  ```

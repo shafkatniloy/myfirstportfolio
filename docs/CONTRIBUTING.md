@@ -87,6 +87,17 @@ Go to GitHub and open a pull request against the `main` branch. Describe:
 - What was changed and why
 - Any known side effects or related issues
 
+### 7. Production Deployment (Netlify)
+
+> **Important Deployment Note:**
+> Netlify is configured to watch the **`master`** branch for production builds.
+> Once your changes are merged into `main`, deploy them live to [shafkatniloy.netlify.app](https://shafkatniloy.netlify.app) by syncing `main` to `master`:
+>
+> ```bash
+> git push origin main:master
+> ```
+> Netlify will automatically detect the push on `master` and publish the updated site live.
+
 ---
 
 ## 📁 Key Files at a Glance

@@ -58,6 +58,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - **Navbar Styling:** Added modern backdrop blur (`backdrop-filter: blur(14px)`) when scrolled.
 
 ### Fixed
+- **Netlify Continuous Deployment Sync:** Fixed Netlify automatic build triggering by synchronizing the remote `master` branch with `main` (`git push origin main:master`), aligning with Netlify's configured production branch.
 - Fixed unclosed quotation marks and duplicate `class` attributes in project screenshots.
 - Fixed mismatched HTML tags (`<h4>` opened with `</h5>` closed in project headers).
 - Fixed duplicate IDs (`id="service"` and `id="contact"` were each used in two separate sections).
