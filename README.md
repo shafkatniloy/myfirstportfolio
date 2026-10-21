@@ -123,7 +123,7 @@ The portfolio is hosted on [Netlify](https://www.netlify.com/) at [shafkatniloy.
 - 📧 **Email:** shafkatniloy119@gmail.com
 - 📞 **Phone:** +8801407383051
 - 📍 **Location:** Dhaka, Bangladesh
-- 💼 **LinkedIn:** [SafkatNiloy](https://www.linkedin.com/in/safkat-niloy-40423924b/)
+- 💼 **LinkedIn:** [SafkatNiloy](https://www.linkedin.com/in/safkat-islam-niloy-40423924b/)
 - 🐙 **GitHub:** [shafkatniloy](https://github.com/shafkatniloy)
 - ⚔️ **Codeforces:** [NOoobmasterSixT9](https://codeforces.com/profile/NOoobmasterSixT9)
 - 🍴 **CodeChef:** [nooobmaaster69](https://www.codechef.com/users/nooobmaaster69)
