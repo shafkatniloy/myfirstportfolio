@@ -6,7 +6,36 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
-## [1.2.0] — Resume Sync & UI Modernization (Current)
+## [1.3.0] — Hero Redesign, Thesis Paper Link & Mobile Polish (Current)
+
+### Added
+- **Eye-Soothing Ambient Aurora Hero Section:**
+  - Modern dual-column layout replacing legacy static background photo.
+  - Theme-adaptive ambient radial glow (`::before` / `::after` aurora effects).
+  - Floating glass portrait avatar card (`.hero-avatar-card`) with animated floating micro-badges (`Specialist 1437` and `1,500+ Solved`).
+  - Professional cropped portrait avatar with centered head-and-shoulders framing.
+- **Undergraduate Thesis Direct Paper Link:**
+  - Added direct link to the thesis paper on Google Drive (`https://drive.google.com/file/d/131T7xRat_Lf8NZ7WwlqTMygQengB0CFq/view`).
+  - Added dedicated "View Paper" action button and interactive card hover styling.
+
+### Changed
+- **Streamlined Content & Clean Flow:**
+  - Removed fictional testimonials section (Sir Albert Einstein and Catwoman).
+  - Removed redundant "Want to work with me? / Hire Me" banner.
+  - Removed ChatGPT mini-game launcher container from bottom of home page.
+  - Restored full horizontal desktop navbar with frosted glass hover pills.
+- **Comprehensive Mobile Viewport Polish:**
+  - Added global `overflow-x: hidden` and `max-width: 100vw` to eliminate mobile horizontal scroll jitter.
+  - Preserved compact 2x2 dashboard grid for Quick Stats on narrow mobile viewports (`< 480px`).
+  - Set 16px font size on contact form inputs to prevent automatic iOS Safari zooming.
+  - Centered about section slideshow image on mobile screens.
+
+### Fixed
+- **LinkedIn Profile URL:** Corrected username slug to `safkat-islam-niloy-40423924b` across `index.html` and `thankyou.html`.
+
+---
+
+## [1.2.0] — Resume Sync & UI Modernization
 
 ### Added
 - **Competitive Programming & Contests Section (`#contests`):**

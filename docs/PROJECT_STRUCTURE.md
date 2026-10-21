@@ -47,7 +47,7 @@ myfirstportfolio/
 
 | Anchor / ID | Section Name | Description |
 |---|---|---|
-| `#home` | **Hero / Header** | Welcome greeting, headline, profile links (Codeforces, CodeChef, GitHub, LinkedIn) |
+| `#home` | **Hero / Header** | Welcome greeting, headline, profile links (Codeforces, CodeChef, GitHub, LinkedIn), and glowing hero portrait avatar card |
 | `#about` | **About Me** | Bio, NSTU CSTE credentials, interactive profile photo slideshow, CV download |
 | — | **Stats Strip** | Quick responsive counter: 1500+ solved, Specialist 1437, 3-Star 1632, 3.65 CGPA |
 | `#education` | **Education** | Reverse-chronological cards: NSTU (CGPA 3.65), DMRC (HSC), Hazi MD. Ekhlasuddin (SSC) |
@@ -55,7 +55,6 @@ myfirstportfolio/
 | `#contests` | **Competitive Programming** | Codeforces & CodeChef cards + 8 onsite contest achievements (IUPCs & Fests) |
 | `#portfolio` | **Projects & Research** | ShopSphere.API, Courier Management System, Undergraduate Thesis, and Java game |
 | `#activities` | **Co-Curricular & Leadership** | PR Secretary (CSTE Club), Problem Setter (NSTU Intra & Science Fest), Teaching |
-| `#testmonial` | **Testimonials** | (Fictional) testimonials from Albert Einstein and Catwoman |
 | `#blog` | **Blog** | Featured blog excerpts with read-more links |
 | `#contact` | **Contact** | Contact pills (Email, Phone `+8801407383051`, Location) + FormSubmit form |
 | `#social` | **Social Channels** | Animated hover pill buttons for Facebook, LinkedIn, Instagram, GitHub, Codeforces |

@@ -83,17 +83,66 @@
 
     <!-- page header -->
     <header id="home" class="header">
-        <div class="overlay"></div>
-        <div class="header-content container">
-            <h1 class="header-title">
-                <span class="up">ASSALAMU ALAIKUM!</span>
-                <span class="down">I am Safkat Niloy</span>
-            </h1>
-            <p class="header-subtitle">COMPETITIVE PROGRAMMER (SPECIALIST) &amp; SOFTWARE DEVELOPER</p>
-            <a href="https://codeforces.com/profile/NOoobmasterSixT9" target="_blank" class="cfbt"><i class="fas fa-terminal mr-1"></i> Codeforces (1437)</a>
-            <a href="https://www.codechef.com/users/nooobmaaster69" target="_blank" class="bbtn"><i class="fas fa-star mr-1"></i> CodeChef (1632)</a>
-            <a href="https://github.com/shafkatniloy" target="_blank" class="bbtn"><i class="fab fa-github mr-1"></i> GitHub</a>
-            <a href="https://www.linkedin.com/in/safkat-islam-niloy-40423924b/" target="_blank" class="bbtn"><i class="fab fa-linkedin mr-1"></i> LinkedIn</a>
+        <div class="container hero-container">
+            <div class="row align-items-center">
+                <!-- Left Content Column -->
+                <div class="col-lg-7 text-center text-lg-left hero-text-col">
+                    <div class="hero-badge-wrapper mb-3">
+                        <span class="hero-badge">
+                            <i class="fas fa-hand-sparkles mr-2"></i> Assalamu Alaikum!
+                        </span>
+                    </div>
+                    <h1 class="hero-title">
+                        I am <span class="hero-name-gradient">Safkat Islam Niloy</span>
+                    </h1>
+                    <p class="hero-roles">
+                        <span class="role-highlight"><i class="fas fa-terminal text-primary mr-1"></i> Competitive Programmer</span>
+                        <span class="role-divider">•</span>
+                        <span class="role-highlight"><i class="fas fa-code text-primary mr-1"></i> Software Developer</span>
+                    </p>
+                    <p class="hero-intro">
+                        B.Sc. in CSTE at <strong>NSTU</strong> (CGPA 3.65). Passionate about algorithmic problem solving, scalable backend engineering with <strong>ASP.NET Core</strong>, and deep learning research.
+                    </p>
+                    
+                    <!-- Modern Frosted Glass Hero Action Buttons -->
+                    <div class="hero-actions">
+                        <a href="https://codeforces.com/profile/NOoobmasterSixT9" target="_blank" class="glass-hero-btn cf-btn" title="Codeforces Profile (Rating 1437)">
+                            <span class="btn-icon"><i class="fas fa-terminal"></i></span>
+                            <span class="btn-text">Codeforces <span class="badge-rating">1437</span></span>
+                        </a>
+                        <a href="https://www.codechef.com/users/nooobmaaster69" target="_blank" class="glass-hero-btn cc-btn" title="CodeChef Profile (Rating 1632)">
+                            <span class="btn-icon"><i class="fas fa-star" style="color: #f59e0b;"></i></span>
+                            <span class="btn-text">CodeChef <span class="badge-rating">1632</span></span>
+                        </a>
+                        <a href="https://github.com/shafkatniloy" target="_blank" class="glass-hero-btn gh-btn" title="GitHub Profile">
+                            <span class="btn-icon"><i class="fab fa-github"></i></span>
+                            <span class="btn-text">GitHub</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/safkat-islam-niloy-40423924b/" target="_blank" class="glass-hero-btn in-btn" title="LinkedIn Profile">
+                            <span class="btn-icon"><i class="fab fa-linkedin" style="color: #0a66c2;"></i></span>
+                            <span class="btn-text">LinkedIn</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Visual Column (Floating Glass Portrait Card & Micro-Badges) -->
+                <div class="col-lg-5 text-center mt-4 mt-lg-0 hero-visual-col">
+                    <div class="hero-avatar-card">
+                        <div class="avatar-glow-ring">
+                            <img src="assets/imgs/hero-avatar.jpg?v=3" alt="Safkat Islam Niloy" class="hero-avatar-img">
+                        </div>
+                        <!-- Floating Micro Badges -->
+                        <div class="floating-badge badge-top-left">
+                            <i class="fas fa-trophy text-warning mr-1"></i>
+                            <span>Specialist (1437)</span>
+                        </div>
+                        <div class="floating-badge badge-bottom-right">
+                            <i class="fas fa-check-circle text-success mr-1"></i>
+                            <span>1,500+ Solved</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </header><!-- end of page header -->
 
@@ -159,7 +208,7 @@
 
     <!-- Education section -->
     <section class="section" id="education">
-        <div class="container text-center" style="max-width: fit-content;">
+        <div class="container text-center">
             <p class="section-subtitle">Academic Background</p>
             <h6 class="section-title mb-6">EDUCATION</h6>
             <!-- row -->
@@ -442,25 +491,35 @@
             </div>
 
             <!-- Undergraduate Thesis Box -->
-            <div class="thesis-box mb-5">
+            <div class="thesis-box mb-5" onclick="window.open('https://drive.google.com/file/d/131T7xRat_Lf8NZ7WwlqTMygQengB0CFq/view', '_blank');" title="Click to view Undergraduate Thesis Paper">
                 <div class="d-flex justify-content-between align-items-center flex-wrap mb-2">
                     <h5 class="font-weight-bold mb-1 text-primary">
                         <i class="fas fa-microscope mr-2"></i> Undergraduate Thesis
                     </h5>
-                    <span class="badge badge-pill badge-secondary">Research &amp; Deep Learning</span>
+                    <div>
+                        <span class="badge badge-pill badge-secondary mr-2">Research &amp; Deep Learning</span>
+                        <a href="https://drive.google.com/file/d/131T7xRat_Lf8NZ7WwlqTMygQengB0CFq/view" target="_blank" class="btn btn-outline-primary btn-sm rounded" onclick="event.stopPropagation();">
+                            <i class="fas fa-external-link-alt mr-1"></i> View Paper
+                        </a>
+                    </div>
                 </div>
-                <h6 class="font-weight-bold text-dark mb-2">
+                <h6 class="font-weight-bold mb-2 thesis-paper-title">
                     Multi-Label Chest X-Ray Classification with Frontal–Lateral Fusion, Grad-CAM, and Zero-Shot Evaluation
                 </h6>
                 <p class="text-muted mb-3" style="line-height: 1.7;">
                     Compared four CNN/ViT models for multi-label classification of eight thoracic findings using frontal–lateral probability fusion, Grad-CAM interpretability for spatial lesion localization, and BiomedCLIP zero-shot evaluation on unseen medical conditions (Bulla, Scoliosis).
                 </p>
-                <div>
-                    <span class="project-tag-pill primary">Deep Learning</span>
-                    <span class="project-tag-pill">CNN &amp; ViT</span>
-                    <span class="project-tag-pill">BiomedCLIP</span>
-                    <span class="project-tag-pill">Grad-CAM</span>
-                    <span class="project-tag-pill">Python</span>
+                <div class="d-flex justify-content-between align-items-center flex-wrap pt-2" style="border-top: 1px solid var(--glass-border-subtle);">
+                    <div>
+                        <span class="project-tag-pill primary">Deep Learning</span>
+                        <span class="project-tag-pill">CNN &amp; ViT</span>
+                        <span class="project-tag-pill">BiomedCLIP</span>
+                        <span class="project-tag-pill">Grad-CAM</span>
+                        <span class="project-tag-pill">Python</span>
+                    </div>
+                    <span class="text-primary font-weight-bold small mt-2 mt-sm-0">
+                        <i class="fas fa-file-pdf mr-1 text-danger"></i> Read on Google Drive <i class="fas fa-arrow-right ml-1"></i>
+                    </span>
                 </div>
             </div>
 
@@ -526,74 +585,6 @@
             </div>
         </div>
     </section><!-- end of activities section -->
-
-
-
-
-
-    <!-- section -->
-    <section class="section-sm bg-primary">
-        <!-- container -->
-        <div class="container text-center text-sm-left">
-            <!-- row -->
-            <div class="row align-items-center">
-                <div class="col-sm offset-md-1 mb-4 mb-md-0">
-                    <h6 class="title text-light">Want to work with me?</h6>
-                    <p class="m-0 text-light">Always feel Free to Contact & Hire me</p>
-                </div>
-                <div class="col-sm offset-sm-2 offset-md-3">
-                    <a class="link" href="#contact"> <button class="btn btn-lg my-font btn-light rounded">Hire
-                            Me</button></a>
-                </div>
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </section> <!-- end of section -->
-
-    <!-- testimonial section -->
-    <section class="section" id="testmonial">
-        <div class="container text-center">
-            <p class="section-subtitle">What Clients Say About Me</p>
-            <h6 class="section-title mb-6">Testimonials</h6><span class="text-muted small">(fictional)</span>
-
-
-            <!-- row -->
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="testimonial-card">
-                        <div class="testimonial-card-img-holder">
-                            <img src="assets/imgs/albert.jpg" class="testimonial-card-img" alt="alber">
-                        </div>
-                        <div class="testimonial-card-body">
-                            <p class="testimonial-card-subtitle"><i class="fas fa-quote-left text-muted mr-1"></i> Safkat Islam Niloy is a
-                                remarkable individual whose passion for computational
-                                programming and graphic design is truly inspiring.
-                                His innovative approach to problem-solving and dedication
-                                to his craft are qualities that set him apart. I have no
-                                doubt that Safkat will continue to achieve great
-                                success in his endeavors and make significant contributions to the field.</p>
-                            <h6 class="testimonial-card-title">Sir Albert Einstein</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="testimonial-card">
-                        <div class="testimonial-card-img-holder">
-                            <img src="assets/imgs/catwomen.jpg" class="testimonial-card-img" alt="cat">
-                        </div>
-                        <div class="testimonial-card-body">
-                            <p class="testimonial-card-subtitle"><i class="fas fa-quote-left text-muted mr-1"></i> Safkat Islam Niloy is not only an incredibly talented
-                                programmer
-                                but also a reliable and resourceful partner on every mission we've undertaken.
-                                His ingenuity and quick thinking have saved the day more times than I can count.
-                                Beyond his skills, Shafkat's passion and dedication are truly captivating.
-                                I know he will continue to excel in all his pursuits, just as he has alongside me.</p>
-                            <h6 class="testimonial-card-title">Catwoman</h6>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> <!-- end of container -->
-    </section> <!-- end of testimonial section -->
 
     <!-- blog section -->
     <section class="section" id="blog">
@@ -718,7 +709,7 @@
     <!-- new social media -->
 
     <section class="section pt-0" id="social">
-        <div class="container text-center" style="max-width: fit-content;">
+        <div class="container text-center">
 
             <div class="wrapper">
                 <div class="button" onclick="window.open('https://www.facebook.com/niloy.119', '_blank');">
@@ -759,17 +750,7 @@
 
     </section><!-- end of social section -->
 
-
-    <!-- end ofs media -->
-
-    <div style="display: flex; justify-content: center; align-items: center; padding: 18px 0;">
-        <a href="game/index.html" alt="linked in id">
-            <button class="bbtn"
-                style="font-size: 14px; padding: 5px 12px; border: none; background-color: #28a745; color: white; border-radius: 10px; cursor: pointer; text-decoration: none; transition: 0.3s;">
-                A Game Made in 2 Min using GPT
-            </button>
-        </a>
-    </div>
+    <!-- footer -->
 
 
 
