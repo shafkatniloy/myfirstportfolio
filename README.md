@@ -1,6 +1,6 @@
 # Safkat Niloy — Personal Portfolio
 
-> A personal portfolio website for **Safkat Islam Niloy**, a Competitive Programmer and Graphic Designer studying Computer Science & Telecommunication Engineering at Noakhali Science and Technology University (NSTU).
+> A personal portfolio website for **Safkat Islam Niloy**, a Competitive Programmer (Codeforces Specialist) and Software / Backend Developer studying Computer Science & Telecommunication Engineering at Noakhali Science and Technology University (NSTU, CGPA: 3.65 / 4.00).
 
 🌐 **Live Site:** [shafkatniloy.netlify.app](https://shafkatniloy.netlify.app)
 
@@ -9,8 +9,9 @@
 ## 📋 Table of Contents
 
 - [About](#about)
+- [Key Highlights](#key-highlights)
 - [Sections](#sections)
-- [Projects Showcased](#projects-showcased)
+- [Featured Projects & Research](#featured-projects--research)
 - [Tech Stack](#tech-stack)
 - [Getting Started](#getting-started)
 - [Project Structure](#project-structure)
@@ -20,7 +21,19 @@
 
 ## About
 
-This is a static, single-page portfolio website built with HTML, CSS, JavaScript, jQuery, and the Bootstrap-based **Meyawo** theme. It showcases Safkat's education, skills, personal projects, blog posts, and contact information.
+This is a static portfolio website built with HTML5, CSS3, JavaScript, jQuery, and a customized Bootstrap-based **Meyawo** theme. It showcases Safkat's academic background, competitive programming contest track record, backend software engineering projects, deep learning research, and co-curricular leadership.
+
+---
+
+## Key Highlights
+
+- ⚔️ **Codeforces Specialist** (Max Rating: **1437**)
+- ⭐ **CodeChef 3-Star** (Max Rating: **1632**)
+- 💡 **1,500+ Algorithmic Problems Solved** across platforms
+- 🥇 **1st Place** — 3rd NSTU National Science Fest 2024
+- 🏅 **4th Rank** — CoU CSE Fest 2025 IUPC (Divisional)
+- 🎓 **B.Sc. (Engg.) in CSTE at NSTU** (2022–2026, **CGPA: 3.65 / 4.00**)
+- 🏛️ **Public Relations Secretary** — CSTE Club, NSTU (2024–25 Committee)
 
 ---
 
@@ -28,31 +41,33 @@ This is a static, single-page portfolio website built with HTML, CSS, JavaScript
 
 | Section | Description |
 |---|---|
-| **Home** | Hero banner with introduction and quick links |
-| **About** | Bio, profile slideshow, and CV download |
-| **Education** | SSC → HSC → University timeline cards |
-| **Skills** | C++, Java, HTML/CSS, and MySQL/Database |
-| **Portfolio** | Screenshots of the Jumping Raihan Java game and Inventory Management System |
-| **Testimonial** | (Fictional) testimonials from Albert Einstein and Catwoman |
-| **Blog** | Two blog post excerpts |
-| **Contact** | FormSubmit-powered contact form |
-| **Social Links** | Facebook, LinkedIn, Instagram, GitHub, Codeforces |
-| **Mini Game** | Link to a browser-playable catch game built in `game/` |
+| **Home** | Hero banner with introduction, ratings, and profile links |
+| **About** | Bio, academic summary, profile slideshow, and CV download |
+| **Stats Strip** | Quick counters: 1500+ solved, Specialist 1437, 3-Star 1632, 3.65 CGPA |
+| **Education** | University (NSTU), College (DMRC), School (SSC) timeline cards |
+| **Skills** | Programming Languages (C/C++, C#, Python, SQL), Backend (.NET, EF Core, PHP), Web & Databases |
+| **Contests** | Online judges and onsite programming contest rankings (IUPCs & Fests) |
+| **Projects** | ShopSphere.API, Courier Management System, Undergraduate Thesis, and Java mini games |
+| **Activities** | Club leadership, problem setting, teaching, and mentorship |
+| **Blog** | Post excerpts |
+| **Contact** | FormSubmit-powered form with direct email, phone, and location details |
+| **Social Links** | GitHub, LinkedIn, Codeforces, Facebook, Instagram |
 
 ---
 
-## Projects Showcased
+## Featured Projects & Research
 
-### 🎮 Jumping Raihan — Java Game
-A Flappy Bird-style game built in Java, mocking Safkat's best friend Raihan.
-- **Download:** [Google Drive](https://drive.google.com/file/d/1cs7Kocuekxw78eG6LK4bTbViC5W4m3vi/view?usp=drivesdk)
+### 🛒 ShopSphere.API — E-Commerce Web API (Ongoing)
+- **Tech Stack:** ASP.NET Core (.NET), C#, EF Core, SQL Server, JWT, AutoMapper, Swagger
+- Layered RESTful e-commerce API (Domain / Application / Infrastructure / API architecture) implementing Repository & Unit of Work patterns, role-based JWT authentication, and Swagger-documented endpoints.
 
-### 🗄️ Inventory Management System — MySQL & PHP
-A web-based inventory system with admin/staff login, dashboard, and staff management.
-- **Repository:** [LinkedIn Post](https://lnkd.in/gQee-Au8)
+### 📦 Courier Management System
+- **Tech Stack:** PHP, SQL, AJAX, MySQL
+- Full-stack web application with dynamic database queries, real-time tracking interactions, and normalized relational schema.
 
-### 🕹️ Catch the Falling Object — Browser Game
-A simple JavaScript game playable with arrow keys, located in `game/`.
+### 🔬 Undergraduate Thesis: Multi-Label Chest X-Ray Classification
+- **Tech Stack:** Deep Learning, CNN, ViT, Grad-CAM, BiomedCLIP, Python
+- Frontal–lateral probability fusion, Grad-CAM interpretability, and zero-shot evaluation on unseen conditions (Bulla, Scoliosis) for 8 thoracic findings.
 
 ---
 
@@ -66,7 +81,6 @@ A simple JavaScript game playable with arrow keys, located in `game/`.
 | Icons | Themify Icons, Font Awesome 5 |
 | Form Handling | [FormSubmit](https://formsubmit.co/) |
 | Hosting | [Netlify](https://www.netlify.com/) |
-| Visit Counter | hitwebcounter |
 
 ---
 
@@ -86,29 +100,22 @@ python3 -m http.server 5500
 ```
 Then open [http://localhost:5500](http://localhost:5500) in your browser.
 
-> **Note:** The SCSS source files in `assets/scss/` need to be compiled to CSS before they affect the site. No Sass build workflow is currently configured. Edit `assets/css/meyawo.css` or `assets/css/style.css` directly for quick changes.
-
----
-
-## Project Structure
-
-See [`PROJECT_STRUCTURE.md`](PROJECT_STRUCTURE.md) for a full directory tree and explanation of how all files connect.
-
 ---
 
 ## Contact
 
 - 📧 **Email:** shafkatniloy119@gmail.com
-- 💼 **LinkedIn:** [safkat-niloy-40423924b](https://www.linkedin.com/in/safkat-niloy-40423924b/)
+- 📞 **Phone:** +8801407383051
+- 📍 **Location:** Dhaka, Bangladesh
+- 💼 **LinkedIn:** [SafkatNiloy](https://www.linkedin.com/in/safkat-niloy-40423924b/)
 - 🐙 **GitHub:** [shafkatniloy](https://github.com/shafkatniloy)
-- 📘 **Facebook:** [niloy.119](https://www.facebook.com/niloy.119)
-- 📷 **Instagram:** [real.redranger](https://www.instagram.com/real.redranger/)
 - ⚔️ **Codeforces:** [NOoobmasterSixT9](https://codeforces.com/profile/NOoobmasterSixT9)
 - 🍴 **CodeChef:** [nooobmaaster69](https://www.codechef.com/users/nooobmaaster69)
+- 📘 **Facebook:** [niloy.119](https://www.facebook.com/niloy.119)
+- 📷 **Instagram:** [real.redranger](https://www.instagram.com/real.redranger/)
 
 ---
 
 ## License
 
-This project is open source and available under the [MIT License](LICENSE.md).
-
+This project is open source and available under the [MIT License](docs/LICENSE.md).

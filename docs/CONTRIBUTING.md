@@ -93,12 +93,13 @@ Go to GitHub and open a pull request against the `main` branch. Describe:
 
 | File | Purpose |
 |---|---|
+| `README.md` | Main GitHub overview and profile highlights |
 | `index.html` | All portfolio content — edit here for bio, projects, blog, contact |
-| `assets/css/style.css` | Custom styles — safe to edit without a build step |
-| `assets/js/meyawo.js` | Navigation and slideshow logic |
+| `assets/css/style.css` | Custom styles, card designs, and animations |
+| `assets/js/meyawo.js` | Navigation, slideshow, and back-to-top logic |
 | `game/script.js` | Browser mini-game logic |
-| `PROJECT_STRUCTURE.md` | Full project map and file guide |
-| `CHANGELOG.md` | Version history |
+| `docs/PROJECT_STRUCTURE.md` | Full project map and file guide |
+| `docs/CHANGELOG.md` | Version history and release notes |
 
 ---
 
