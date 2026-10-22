@@ -1,6 +1,6 @@
 # Portfolio Project Structure
 
-This is Safkat Islam Niloy's personal portfolio website, built with HTML5, CSS3, JavaScript, jQuery, and a customized Bootstrap-based Meyawo theme. Pages and assets are served directly as static files.
+This is Safkat Islam Niloy's personal portfolio website, built with HTML5, CSS3, JavaScript, jQuery, and a custom Glass UI design system with Bootstrap 4. Pages and assets are served directly as static files.
 
 ---
 
@@ -10,7 +10,7 @@ This is Safkat Islam Niloy's personal portfolio website, built with HTML5, CSS3,
 myfirstportfolio/
 ├── README.md                  # Main GitHub project overview & highlights
 ├── index.html                 # Main single-page portfolio
-├── components.html            # Theme UI component examples
+├── components.html            # UI component reference
 ├── thankyou.html              # Contact form confirmation page
 ├── tab logo.png               # Site favicon
 ├── docs/                      # Project documentation
@@ -20,15 +20,15 @@ myfirstportfolio/
 │   └── PROJECT_STRUCTURE.md   # This architecture and directory guide
 ├── assets/
 │   ├── css/
-│   │   ├── meyawo.css         # Bootstrap and Meyawo theme baseline styles
-│   │   └── style.css          # Custom styling, shadcn-inspired components, cards, & animations
+│   │   ├── base.css           # Bootstrap 4 foundation and baseline layout styles
+│   │   └── style.css          # Apple Liquid Glass design tokens, Dynamic Island navbar, specular highlights, responsive cards, & animations
 │   ├── js/
-│   │   └── meyawo.js          # Navigation, smooth scroll, interactive slideshow, & back-to-top logic
+│   │   └── main.js            # Dark mode, 6-theme palette switchers (dual navbar & floating bar), navigation, slideshow, & AJAX contact form
 │   ├── imgs/
 │   │   ├── education/         # School, college, and university logos
 │   │   ├── dbms project/      # Inventory system screenshots
 │   │   └── ...                # Portraits, game assets, icons, and blog images
-│   ├── scss/                  # Sass sources for the theme
+│   ├── scss/                  # Sass sources for baseline styling
 │   └── vendors/
 │       ├── bootstrap/         # Bootstrap 4.3.1 bundle, affix, and scripts
 │       ├── jquery/            # jQuery 3.4.1 library
@@ -63,14 +63,16 @@ myfirstportfolio/
 
 ## How the Files Connect
 
-1. `index.html` loads Themify Icons, Font Awesome 5, `assets/css/meyawo.css`, and `assets/css/style.css`.
-2. `assets/css/style.css` contains all custom design elements: quick stats strip, contest cards, project cards, thesis box, glassmorphism navbar blur, and back-to-top button.
-3. At the footer, jQuery loads before Bootstrap, affix plugin, and `assets/js/meyawo.js`.
-4. `assets/js/meyawo.js` handles:
+1. `index.html` loads Themify Icons, Font Awesome 5, `assets/css/base.css`, and `assets/css/style.css`.
+2. `assets/css/style.css` contains all custom design elements: Apple Liquid Glass design tokens (`--liquid-glass-bg`, `--liquid-glass-rim`), Dynamic Island capsule navbar, specular edge reflections, spring bezier physics, responsive contest & project cards, thesis link box, and floating quick-action controls.
+3. At the footer, jQuery loads before Bootstrap, affix plugin, and `assets/js/main.js`.
+4. `assets/js/main.js` handles:
+   - Dark/Light mode toggle with automatic `prefers-color-scheme` detection and `localStorage` persistence
+   - 6-color accent palette switching with dual interactive access (top capsule navbar & bottom-left floating quick bar)
    - Smooth anchor scrolling and auto-closing mobile navbar
    - Dynamic show/hide and click scrolling for `#backToTop`
    - Timed auto-play and clickable manual dot navigation for `#aboutImage`
-5. The contact form posts to FormSubmit, redirecting upon success to `thankyou.html`.
+5. The contact form submits asynchronously via FormSubmit AJAX API with instant in-page frosted glass feedback, honeypot spam protection (`_honey`), and automatic `mailto:` fallback.
 6. Standalone browser game runs from `game/index.html`.
 
 ---

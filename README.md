@@ -21,7 +21,7 @@
 
 ## About
 
-This is a static portfolio website built with HTML5, CSS3, JavaScript, jQuery, and a customized Bootstrap-based **Meyawo** theme. It showcases Safkat's academic background, competitive programming contest track record, backend software engineering projects, deep learning research, and co-curricular leadership.
+This is a modern static portfolio website built with HTML5, CSS3, JavaScript, jQuery, and an Apple Liquid Glass design system with Bootstrap 4 baseline. It features a floating Dynamic Island capsule navbar, Dark/Light mode, a 6-accent color theme switcher, an ambient aurora hero section, and responsive mobile architecture. It showcases Safkat's academic background, competitive programming contest track record, backend software engineering projects, deep learning research, and co-curricular leadership.
 
 ---
 
@@ -76,10 +76,10 @@ This is a static portfolio website built with HTML5, CSS3, JavaScript, jQuery, a
 | Layer | Technology |
 |---|---|
 | Markup | HTML5 |
-| Styling | CSS3, Bootstrap 4.3.1, Meyawo Theme, SCSS |
-| Scripting | Vanilla JavaScript, jQuery 3.4.1 |
+| Styling | CSS3, Apple Liquid Glass UI, Bootstrap 4.3.1 (`base.css`), SCSS |
+| Scripting | Vanilla JavaScript, jQuery 3.4.1 (`main.js`) |
 | Icons | Themify Icons, Font Awesome 5 |
-| Form Handling | [FormSubmit](https://formsubmit.co/) |
+| Form Handling | [FormSubmit AJAX API](https://formsubmit.co/) (Asynchronous with honeypot spam protection) |
 | Hosting | [Netlify](https://www.netlify.com/) |
 
 ---

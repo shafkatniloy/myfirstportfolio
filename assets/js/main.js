@@ -168,4 +168,112 @@ $(document).ready(function () {
             startTimer();
         });
     }
+
+    // -------------------------------------------------------------
+    // CONTACT FORM AJAX SUBMISSION & ERROR HANDLING
+    // -------------------------------------------------------------
+    function escapeHtml(str) {
+        return $('<div>').text(str || '').html();
+    }
+
+    $('#contactForm').on('submit', function (e) {
+        e.preventDefault();
+
+        const $form = $(this);
+        const $btn = $('#contactSubmitBtn');
+        const $status = $('#contactStatus');
+
+        const name = $('#senderName').val().trim();
+        const email = $('#senderEmail').val().trim();
+        const subject = $('#messageSubject').val().trim();
+        const message = $('#messageContent').val().trim();
+        const honey = $('input[name="_honey"]').val();
+
+        if (!name || !email || !subject || !message) {
+            $status.html(`
+                <div class="glass-alert alert-warning">
+                    <i class="fas fa-exclamation-circle text-warning mr-2"></i>
+                    Please fill out all required fields before submitting.
+                </div>
+            `).slideDown();
+            return;
+        }
+
+        // Detect if user is running locally via file:// protocol
+        if (window.location.protocol === 'file:') {
+            const mailtoUrl = `mailto:shafkatniloy119@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent('Hi Safkat,\n\n' + message + '\n\nFrom: ' + name + ' (' + email + ')')}`;
+            $status.html(`
+                <div class="glass-alert alert-warning">
+                    <i class="fas fa-info-circle text-warning mr-2"></i>
+                    <strong>Viewing as local file:</strong> Browser security blocks direct web form API requests from <code>file:///</code> URLs. Run the project through a local web server (e.g. VS Code Live Server) or test on the live Netlify site.
+                    <div class="mt-2">
+                        <a href="${mailtoUrl}" class="btn btn-sm btn-primary rounded">
+                            <i class="fas fa-paper-plane mr-1"></i> Send Directly via Email App
+                        </a>
+                    </div>
+                </div>
+            `).slideDown();
+            return;
+        }
+
+        // Loading state
+        $btn.prop('disabled', true);
+        $btn.find('.btn-text').addClass('d-none');
+        $btn.find('.btn-loading').removeClass('d-none');
+        $status.slideUp();
+
+        const payload = {
+            name: name,
+            email: email,
+            _subject: `Portfolio Message from ${name}: ${subject}`,
+            subject: subject,
+            message: message,
+            _honey: honey,
+            _template: 'table'
+        };
+
+        fetch('https://formsubmit.co/ajax/shafkatniloy119@gmail.com', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        })
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            if (data.success === 'true' || data.success === true) {
+                $status.html(`
+                    <div class="glass-alert alert-success">
+                        <i class="fas fa-check-circle text-success mr-2"></i>
+                        <strong>Thank you, ${escapeHtml(name)}!</strong> Your message has been sent successfully. Safkat will get back to you at <em>${escapeHtml(email)}</em> as soon as possible.
+                    </div>
+                `).slideDown();
+                $form[0].reset();
+            } else {
+                throw new Error(data.message || 'Submission was not completed.');
+            }
+        })
+        .catch(function (err) {
+            const mailtoUrl = `mailto:shafkatniloy119@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent('Hi Safkat,\n\n' + message + '\n\nFrom: ' + name + ' (' + email + ')')}`;
+            $status.html(`
+                <div class="glass-alert alert-warning">
+                    <i class="fas fa-exclamation-triangle text-warning mr-2"></i>
+                    <strong>Notice:</strong> ${escapeHtml(err.message || 'Unable to deliver message automatically right now.')}
+                    <div class="mt-2">
+                        <a href="${mailtoUrl}" class="btn btn-sm btn-primary rounded">
+                            <i class="fas fa-envelope mr-1"></i> Click to Send via Your Email Client
+                        </a>
+                    </div>
+                </div>
+            `).slideDown();
+        })
+        .finally(function () {
+            $btn.prop('disabled', false);
+            $btn.find('.btn-text').removeClass('d-none');
+            $btn.find('.btn-loading').addClass('d-none');
+        });
+    });
 });

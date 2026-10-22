@@ -6,9 +6,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
-## [1.3.0] — Hero Redesign, Thesis Paper Link & Mobile Polish (Current)
+## [1.3.0] — Apple Liquid Glass UI, Decoupled Architecture & Polish (Current)
 
 ### Added
+- **Apple Liquid Glass Design System Overhaul:**
+  - Transitioned the entire UI to an Apple visionOS / iOS "Liquid Glass" design language.
+  - Hyper-translucent luminous surfaces with optical refraction (`backdrop-filter: blur(28px) saturate(210%)` / `-webkit-backdrop-filter`).
+  - Tuned crystal glass background fills (`rgba(255, 255, 255, 0.38)` in light mode, `rgba(18, 20, 29, 0.38)` in dark mode).
+  - Razor-sharp dual specular rim highlights (`inset 0 1.5px 0 0 rgba(255, 255, 255, 0.95)` top highlight and `inset 0 -1px 0 0 rgba(255, 255, 255, 0.35)` caustic bounce).
+  - **Floating Dynamic Island Capsule Navbar:** Floating 14px from top edge with pill curvature (`border-radius: 9999px`), max width 1140px, specular reflection sheen (`::before`), and responsive mobile drawer integration.
+  - **Liquid Physics & Spring Transitions:** Apple-style spring cubic bezier (`cubic-bezier(0.16, 1, 0.3, 1)`) on buttons, cards, social icons, and floating controls.
+  - Added dedicated header spacing (`padding-top: 125px`) to prevent floating capsule navbar overlap with hero intro text.
 - **Eye-Soothing Ambient Aurora Hero Section:**
   - Modern dual-column layout replacing legacy static background photo.
   - Theme-adaptive ambient radial glow (`::before` / `::after` aurora effects).
@@ -19,6 +27,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - Added dedicated "View Paper" action button and interactive card hover styling.
 
 ### Changed
+- **Decoupled from Meyawo Template Branding:**
+  - Completely purged all legacy Meyawo template comments, metadata, and references across all files.
+  - Renamed `assets/css/meyawo.css` $\rightarrow$ `assets/css/base.css`.
+  - Renamed `assets/js/meyawo.js` $\rightarrow$ `assets/js/main.js`.
+  - Renamed `assets/scss/meyawo.scss` $\rightarrow$ `assets/scss/base.scss`.
+  - Updated stylesheet and script references in `index.html`, `thankyou.html`, and `components.html`.
+- **Contact Form Asynchronous AJAX Upgrade:**
+  - Modernized submission via FormSubmit AJAX endpoint (`https://formsubmit.co/ajax/shafkatniloy119@gmail.com`).
+  - Added live spinning button state (`Sending...`) and disabled multi-click protection.
+  - Added in-page frosted glass success and error alerts (`.glass-alert`).
+  - Added hidden honeypot spam protection (`_honey`) to prevent intrusive reCAPTCHA prompts.
+  - Built-in `file:///` local protocol detection with one-click direct email fallback.
 - **Streamlined Content & Clean Flow:**
   - Removed fictional testimonials section (Sir Albert Einstein and Catwoman).
   - Removed redundant "Want to work with me? / Hire Me" banner.
@@ -31,6 +51,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - Centered about section slideshow image on mobile screens.
 
 ### Fixed
+- **Bottom-Left Floating Theme Palette Dropdown:**
+  - Resolved visibility bug where clicking `#floatingPaletteToggleBtn` was unresponsive.
+  - Fixed container clipping caused by `overflow: hidden` on `.floating-glass-bar`, changing to `overflow: visible !important`.
+  - Configured upward-opening popover positioning (`bottom: calc(100% + 14px)`) with smooth fluid upward animation (`@keyframes fadeInUp`) and clean centering above the quick-action pill.
+  - Cleaned up inline style overrides on `#floatingPaletteDropdown`.
 - **LinkedIn Profile URL:** Corrected username slug to `safkat-islam-niloy-40423924b` across `index.html` and `thankyou.html`.
 
 ---
@@ -115,7 +140,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 - `index.html` — main single-page portfolio with basic sections.
-- `assets/css/meyawo.css` — Meyawo Bootstrap theme.
+- `assets/css/base.css` — Bootstrap baseline theme.
 - `assets/css/style.css` — custom portfolio styles.
-- `assets/js/meyawo.js` — navigation toggle and slideshow.
-- `components.html` — theme UI component reference page.
+- `assets/js/main.js` — navigation toggle and slideshow.
+- `components.html` — UI component reference page.

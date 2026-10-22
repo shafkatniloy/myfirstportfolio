@@ -49,11 +49,11 @@ git checkout -b feature/add-dark-mode
 
 - **Content / HTML:** Edit `index.html`, `thankyou.html`, or `components.html`.
 - **Custom styles:** Edit `assets/css/style.css` directly (no build step needed).
-- **Theme styles:** Edit `assets/css/meyawo.css` or the SCSS sources in `assets/scss/` (requires a Sass compiler).
-- **JavaScript / Interactivity:** Edit `assets/js/meyawo.js`.
+- **Base styles:** Edit `assets/css/base.css` or the SCSS sources in `assets/scss/` (requires a Sass compiler).
+- **JavaScript / Interactivity:** Edit `assets/js/main.js`.
 - **Game:** Edit `game/script.js` or `game/style.css`.
 
-> **Tip:** For quick styling tweaks, always edit `assets/css/style.css` — it loads after `meyawo.css` and can override any theme defaults without touching the SCSS.
+> **Tip:** For quick styling tweaks, always edit `assets/css/style.css` — it loads after `base.css` and can override any defaults without touching the SCSS.
 
 ### 4. Test Locally
 
@@ -107,7 +107,7 @@ Go to GitHub and open a pull request against the `main` branch. Describe:
 | `README.md` | Main GitHub overview and profile highlights |
 | `index.html` | All portfolio content — edit here for bio, projects, blog, contact |
 | `assets/css/style.css` | Custom styles, card designs, and animations |
-| `assets/js/meyawo.js` | Navigation, slideshow, and back-to-top logic |
+| `assets/js/main.js` | Navigation, slideshow, theme controller, and contact logic |
 | `game/script.js` | Browser mini-game logic |
 | `docs/PROJECT_STRUCTURE.md` | Full project map and file guide |
 | `docs/CHANGELOG.md` | Version history and release notes |
@@ -117,7 +117,7 @@ Go to GitHub and open a pull request against the `main` branch. Describe:
 ## ✅ Code Style
 
 - Use 4-space indentation for HTML and CSS.
-- Keep class names consistent with existing Bootstrap and Meyawo conventions.
+- Keep class names consistent with existing Bootstrap and portfolio conventions.
 - Add `alt` text to all `<img>` tags.
 - Avoid inline styles where a CSS class can be used instead.
 - When adding new images, place them in `assets/imgs/` and use lowercase, hyphen-separated filenames (e.g., `project-screenshot.png`).
