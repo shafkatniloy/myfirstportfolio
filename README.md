@@ -108,13 +108,12 @@ The portfolio is hosted on [Netlify](https://www.netlify.com/) at [shafkatniloy.
 
 > [!IMPORTANT]
 > **Netlify Deployment Branch:**
-> Netlify is configured to watch and deploy from the **`master`** branch.
-> When pushing updates from your local `main` branch, always push to both `main` and `master` to trigger immediate live deployment:
+> Netlify is configured to watch and deploy from the **`main`** production branch (`Production: main`).
+> When pushing updates from your local workspace, push directly to `main` to trigger immediate live deployment:
 >
 > ```bash
-> git push origin main && git push origin main:master
+> git push origin main
 > ```
-> *(Tip: You can also update the "Production branch" setting to `main` in Netlify Dashboard $\rightarrow$ **Site configuration** $\rightarrow$ **Build & deploy** $\rightarrow$ **Continuous deployment** $\rightarrow$ **Branches**).*
 
 ---
 

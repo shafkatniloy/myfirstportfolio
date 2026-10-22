@@ -80,8 +80,8 @@ myfirstportfolio/
 ## Deployment & CI/CD Pipeline
 
 - **Hosting Platform:** Netlify ([shafkatniloy.netlify.app](https://shafkatniloy.netlify.app))
-- **Monitored Branch:** `master` (synchronized with `main`)
+- **Monitored Branch:** `main` (Production)
 - **Deployment Command:**
   ```bash
-  git push origin main && git push origin main:master
+  git push origin main
   ```
