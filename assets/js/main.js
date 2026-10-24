@@ -276,4 +276,77 @@ $(document).ready(function () {
             $btn.find('.btn-loading').addClass('d-none');
         });
     });
+
+    // =============================================================
+    // TRUE REFRACTIVE 3D LIQUID GLASS NORMAL-MAP ENGINE
+    // (liquid-glass-ui skill architecture)
+    // =============================================================
+    function buildLiquidLensMap(width = 360, height = 68, bezelThickness = 22, targetId = 'liquid-lens-map') {
+        const canvas = document.createElement('canvas');
+        canvas.width = Math.max(Math.round(width), 20);
+        canvas.height = Math.max(Math.round(height), 20);
+        const ctx = canvas.getContext('2d');
+        if (!ctx) return;
+        const imgData = ctx.createImageData(canvas.width, canvas.height);
+        const data = imgData.data;
+
+        const radius = canvas.height / 2;
+
+        for (let y = 0; y < canvas.height; y++) {
+            for (let x = 0; x < canvas.width; x++) {
+                // Find distance to nearest inner pill spine point
+                const spineX = Math.max(radius, Math.min(canvas.width - radius, x));
+                const spineY = radius;
+
+                const dx = x - spineX;
+                const dy = y - spineY;
+                const distFromSpine = Math.sqrt(dx * dx + dy * dy);
+
+                // How close are we to the outer edge? (0 = inner flat zone, 1 = outer rim)
+                const bezelStart = Math.max(0, radius - bezelThickness);
+                let t = Math.max(0, Math.min(1, (distFromSpine - bezelStart) / bezelThickness));
+
+                // Smooth cubic curve for realistic convex water lens curvature
+                const curve = t * t * (3 - 2 * t);
+
+                // Normal vector pointing outward
+                const nx = distFromSpine > 0 ? dx / distFromSpine : 0;
+                const ny = distFromSpine > 0 ? dy / distFromSpine : 0;
+
+                // 128 is zero displacement. Push outward near edges:
+                const r = Math.round(128 + nx * curve * 127);
+                const g = Math.round(128 + ny * curve * 127);
+
+                const idx = (y * canvas.width + x) * 4;
+                data[idx] = r;     // X displacement (R channel)
+                data[idx + 1] = g; // Y displacement (G channel)
+                data[idx + 2] = 128;
+                data[idx + 3] = 255;
+            }
+        }
+
+        ctx.putImageData(imgData, 0, 0);
+        const feImage = document.getElementById(targetId);
+        if (feImage) {
+            feImage.setAttribute('href', canvas.toDataURL('image/png'));
+        }
+    }
+
+    function initLiquidGlassLenses() {
+        const nav = document.querySelector('.custom-navbar');
+        const navW = nav ? Math.round(nav.offsetWidth) : 800;
+        const navH = nav ? Math.round(nav.offsetHeight) : 56;
+
+        buildLiquidLensMap(Math.min(navW, 1140), Math.max(navH, 48), 20, 'liquid-lens-map');
+        buildLiquidLensMap(120, 48, 16, 'liquid-lens-bar-map');
+        buildLiquidLensMap(48, 48, 22, 'liquid-lens-orb-map');
+    }
+
+    // Initialize lenses on load and update on window resize
+    initLiquidGlassLenses();
+    let liquidResizeTimer;
+    $(window).on('resize', function () {
+        clearTimeout(liquidResizeTimer);
+        liquidResizeTimer = setTimeout(initLiquidGlassLenses, 150);
+    });
 });

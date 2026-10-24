@@ -12,12 +12,30 @@
     <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
     <!-- Base & Portfolio Styles -->
     <link rel="stylesheet" href="assets/css/base.css">
-    <link rel="stylesheet" href="assets/css/style.css?v=liquid3">
+    <link rel="stylesheet" href="assets/css/style.css?v=liquid5">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+
+    <!-- Hidden SVG Filters for True Bezel Refraction (liquid-glass-ui skill) -->
+    <svg width="0" height="0" class="liquid-glass-svg-filters" style="position: absolute; pointer-events: none; opacity: 0; z-index: -1;">
+        <defs>
+            <filter id="liquid-lens-filter" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">
+                <feImage id="liquid-lens-map" x="0" y="0" width="100%" height="100%" preserveAspectRatio="none" result="lensMap" />
+                <feDisplacementMap in="SourceGraphic" in2="lensMap" scale="28" xChannelSelector="R" yChannelSelector="G" />
+            </filter>
+            <filter id="liquid-lens-bar" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">
+                <feImage id="liquid-lens-bar-map" x="0" y="0" width="100%" height="100%" preserveAspectRatio="none" result="barMap" />
+                <feDisplacementMap in="SourceGraphic" in2="barMap" scale="22" xChannelSelector="R" yChannelSelector="G" />
+            </filter>
+            <filter id="liquid-lens-orb" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">
+                <feImage id="liquid-lens-orb-map" x="0" y="0" width="100%" height="100%" preserveAspectRatio="none" result="orbMap" />
+                <feDisplacementMap in="SourceGraphic" in2="orbMap" scale="24" xChannelSelector="R" yChannelSelector="G" />
+            </filter>
+        </defs>
+    </svg>
 
     <!-- Page Navbar -->
     <nav class="custom-navbar" data-spy="affix" data-offset-top="20">

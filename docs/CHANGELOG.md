@@ -9,6 +9,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [1.3.0] — Apple Liquid Glass UI, Decoupled Architecture & Polish (Current)
 
 ### Added
+- **True Refractive 3D Liquid Glass Architecture (`liquid-glass-ui` skill):**
+  - Integrated full 4-layer optical physics implementation:
+    1. **Low-Blur Optical Refraction:** Reduced blur to crisp `3.5px` with `saturate(165%)` and `contrast(104%)` so background elements clearly refract rather than blur.
+    2. **Edge-Only Bezel Displacement Map:** Hidden SVG filters (`#liquid-lens-filter`, `#liquid-lens-bar`, `#liquid-lens-orb`) driven by offscreen Canvas-generated normal maps in `assets/js/main.js` that stretch pixels only along curved borders.
+    3. **Stacked 3D Inner Volume:** Layered `inset` box shadows for top specular rim, bottom curved depth shadow, inner ambient glow, and elevation shadow.
+    4. **Directional Specular Lighting & Active 3D Droplet:** Multi-tiered borders (bright top, subtle bottom) and active nav pills styled as convex top-lit water droplets (`radial-gradient` with dual inset rim highlights).
+  - Cross-browser graceful fallback for Safari/Firefox (`blur(12px) saturate(180%)`).
 - **Apple Liquid Glass Design System Overhaul:**
   - Transitioned the entire UI to an Apple visionOS / iOS "Liquid Glass" design language.
   - Hyper-translucent luminous surfaces with optical refraction (`backdrop-filter: blur(28px) saturate(210%)` / `-webkit-backdrop-filter`).
