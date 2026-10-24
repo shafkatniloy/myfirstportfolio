@@ -11,8 +11,12 @@ myfirstportfolio/
 ├── README.md                  # Main GitHub project overview & highlights
 ├── index.html                 # Main single-page portfolio
 ├── components.html            # UI component reference
-├── thankyou.html              # Contact form confirmation page
-├── tab logo.png               # Site favicon
+├── tab logo.png               # High-res 512x512 liquid glass master icon
+├── favicon.ico                # Multi-resolution ICO (16x16, 32x32, 48x48, 64x64)
+├── favicon-32x32.png          # Desktop browser tab icon
+├── favicon-16x16.png          # Compact tab icon
+├── apple-touch-icon.png       # 180x180 iOS home screen web-clip icon
+├── site.webmanifest           # PWA web app manifest (192x192 & 512x512)
 ├── docs/                      # Project documentation
 │   ├── CHANGELOG.md           # Version history and release notes
 │   ├── CONTRIBUTING.md        # Contribution & development guide
