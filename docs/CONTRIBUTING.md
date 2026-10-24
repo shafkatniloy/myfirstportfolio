@@ -87,16 +87,16 @@ Go to GitHub and open a pull request against the `main` branch. Describe:
 - What was changed and why
 - Any known side effects or related issues
 
-### 7. Production Deployment (Netlify)
+### 7. Production Deployment (Vercel)
 
 > **Important Deployment Note:**
-> Netlify is configured to watch the **`main`** branch for production builds.
-> Once your changes are committed to `main`, deploy them live to [shafkatniloy.netlify.app](https://shafkatniloy.netlify.app) by pushing directly to `main`:
+> The portfolio is connected to **Vercel** and deploys automatically from the **`main`** branch.
+> Once your changes are committed to `main`, deploy them live to [shafkatniloy.vercel.app](https://shafkatniloy.vercel.app) by pushing directly to `main`:
 >
 > ```bash
 > git push origin main
 > ```
-> Netlify will automatically detect the push on `main` and publish the updated site live.
+> Vercel will automatically detect the push on `main` and publish the updated site live in seconds.
 
 ---
 
@@ -126,5 +126,5 @@ Go to GitHub and open a pull request against the `main` branch. Describe:
 
 ## 📬 Questions?
 
-Feel free to reach out via the [contact form](https://shafkatniloy.netlify.app/#contact) or open a GitHub Issue.
+Feel free to reach out via the [contact form](https://shafkatniloy.vercel.app/#contact) or open a GitHub Issue.
 

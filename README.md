@@ -2,7 +2,7 @@
 
 > A personal portfolio website for **Safkat Islam Niloy**, a Competitive Programmer (Codeforces Specialist) and Software / Backend Developer studying Computer Science & Telecommunication Engineering at Noakhali Science and Technology University (NSTU, CGPA: 3.65 / 4.00).
 
-🌐 **Live Site:** [shafkatniloy.netlify.app](https://shafkatniloy.netlify.app)
+🌐 **Live Site:** [shafkatniloy.vercel.app](https://shafkatniloy.vercel.app)
 
 ---
 
@@ -80,7 +80,7 @@ This is a modern static portfolio website built with HTML5, CSS3, JavaScript, jQ
 | Scripting | Vanilla JavaScript, jQuery 3.4.1 (`main.js`) |
 | Icons | Themify Icons, Font Awesome 5 |
 | Form Handling | [FormSubmit AJAX API](https://formsubmit.co/) (Asynchronous with honeypot spam protection) |
-| Hosting | [Netlify](https://www.netlify.com/) |
+| Hosting | [Vercel](https://vercel.com/) |
 
 ---
 
@@ -102,14 +102,13 @@ Then open [http://localhost:5500](http://localhost:5500) in your browser.
 
 ---
 
-## 🚀 Deployment & Continuous Integration (Netlify)
+## 🚀 Deployment & Continuous Integration (Vercel)
 
-The portfolio is hosted on [Netlify](https://www.netlify.com/) at [shafkatniloy.netlify.app](https://shafkatniloy.netlify.app).
+The portfolio is deployed on [Vercel](https://vercel.com/) at [shafkatniloy.vercel.app](https://shafkatniloy.vercel.app).
 
-> [!IMPORTANT]
-> **Netlify Deployment Branch:**
-> Netlify is configured to watch and deploy from the **`main`** production branch (`Production: main`).
-> When pushing updates from your local workspace, push directly to `main` to trigger immediate live deployment:
+> [!TIP]
+> **Vercel Automatic Deployments:**
+> Vercel is connected to GitHub and automatically builds and deploys every commit pushed to the **`main`** branch:
 >
 > ```bash
 > git push origin main

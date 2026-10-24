@@ -79,7 +79,7 @@ myfirstportfolio/
 
 ## Deployment & CI/CD Pipeline
 
-- **Hosting Platform:** Netlify ([shafkatniloy.netlify.app](https://shafkatniloy.netlify.app))
+- **Hosting Platform:** Vercel ([shafkatniloy.vercel.app](https://shafkatniloy.vercel.app))
 - **Monitored Branch:** `main` (Production)
 - **Deployment Command:**
   ```bash
