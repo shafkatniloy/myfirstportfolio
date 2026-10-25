@@ -104,12 +104,12 @@ h3,
 h4,
 h5,
 h6 {
-    font-weight: 500;
-    font-family: 'Baloo Paaji', cursive;
+    font-weight: 600;
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
     color: $indigo;
 }
 .my-font {
-    font-family: 'Baloo Paaji', cursive;
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
 }
 p {
     font-size: calc(13px + (15 - 13) * ((100vw - 300px) / (1300 - 300)));

@@ -1,5 +1,126 @@
 $(document).ready(function () {
     // -------------------------------------------------------------
+    // HIGH-OCTANE RUNNER PRELOADER CONTROLLER
+    // -------------------------------------------------------------
+    const $loader = $('#pageLoader');
+    if ($loader.length) {
+        $('body').addClass('loader-active');
+
+        const $progressBar = $('#loaderProgressBar');
+        const $percentage = $('#loaderPercentage');
+        const $statusText = $('#loaderStatusText');
+        const $skipBtn = $('#skipLoaderBtn');
+        const $runnerWrap = $('#runnerCharacterWrap');
+
+        let currentProgress = 0;
+        let isDone = false;
+
+        const milestones = [
+            { pct: 0,  msg: "Booting core architecture..." },
+            { pct: 18, msg: "Compiling C++ algorithms & data structures..." },
+            { pct: 42, msg: "Benchmarking Codeforces test cases..." },
+            { pct: 65, msg: "Calibrating Liquid Glass shaders..." },
+            { pct: 86, msg: "Polishing UI & interactive components..." },
+            { pct: 98, msg: "Sprint complete! Launching..." }
+        ];
+
+        function getMilestoneMessage(progress) {
+            for (let i = milestones.length - 1; i >= 0; i--) {
+                if (progress >= milestones[i].pct) {
+                    return milestones[i].msg;
+                }
+            }
+            return milestones[0].msg;
+        }
+
+        function updateProgress(value) {
+            currentProgress = Math.min(100, Math.max(currentProgress, Math.round(value)));
+            $progressBar.css('width', currentProgress + '%');
+            $percentage.text(currentProgress + '%');
+            $statusText.text(getMilestoneMessage(currentProgress));
+
+            // Move the runner along the sprint track in real-time
+            if ($runnerWrap.length) {
+                $runnerWrap[0].style.setProperty('--run-progress', currentProgress);
+            }
+
+            if (currentProgress >= 100 && !isDone) {
+                finishLoading();
+            }
+        }
+
+        function finishLoading() {
+            if (isDone) return;
+            isDone = true;
+            clearInterval(loaderInterval);
+            clearTimeout(loaderSafetyTimer);
+
+            // Ensure 100% is displayed
+            $progressBar.css('width', '100%');
+            $percentage.text('100%');
+            $statusText.text('Sprint complete! Launching...');
+            if ($runnerWrap.length) {
+                $runnerWrap[0].style.setProperty('--run-progress', 100);
+            }
+
+            // Trigger dash-out animation and smooth curtain fade
+            setTimeout(function () {
+                $loader.addClass('is-finishing');
+                $('body').removeClass('loader-active');
+
+                setTimeout(function () {
+                    $loader.addClass('loader-hidden');
+                }, 650);
+            }, 180);
+        }
+
+        // Smooth increment loop (~1.5s total duration)
+        const startTime = Date.now();
+        const duration = 1500; // ms
+        const loaderInterval = setInterval(function () {
+            if (isDone) return;
+            const elapsed = Date.now() - startTime;
+            const progress = Math.min(100, (elapsed / duration) * 100);
+
+            // Add slight organic acceleration curve
+            const easedProgress = Math.min(100, Math.pow(progress / 100, 0.95) * 100);
+            updateProgress(easedProgress);
+
+            if (elapsed >= duration) {
+                updateProgress(100);
+            }
+        }, 30);
+
+        // Safety fallback timer (max 2.2s)
+        const loaderSafetyTimer = setTimeout(function () {
+            if (!isDone) {
+                updateProgress(100);
+            }
+        }, 2200);
+
+        // Skip triggers (button, spacebar, escape, enter, or clicking anywhere)
+        $skipBtn.on('click', function (e) {
+            e.stopPropagation();
+            finishLoading();
+        });
+
+        $loader.on('click', function (e) {
+            if (!$(e.target).closest('#skipLoaderBtn').length) {
+                finishLoading();
+            }
+        });
+
+        $(document).on('keydown.loader', function (e) {
+            if (isDone) return;
+            if (e.key === ' ' || e.key === 'Escape' || e.key === 'Enter') {
+                e.preventDefault();
+                $(document).off('keydown.loader');
+                finishLoading();
+            }
+        });
+    }
+
+    // -------------------------------------------------------------
     // THEME & COLOR PALETTE CONTROLLER
     // -------------------------------------------------------------
     const savedTheme = localStorage.getItem('portfolio-theme');

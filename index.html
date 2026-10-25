@@ -17,14 +17,111 @@
     <title>Safkat Islam Niloy | Portfolio</title>
     <!-- font icons -->
     <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
+    <!-- Google Fonts: Outfit & Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <!-- Base & Portfolio Styles -->
     <link rel="stylesheet" href="assets/css/base.css">
-    <link rel="stylesheet" href="assets/css/style.css?v=liquid5">
+    <link rel="stylesheet" href="assets/css/style.css?v=liquid10">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+
+    <!-- High-Octane Runner Preloader -->
+    <div id="pageLoader" class="page-loader" role="dialog" aria-modal="true" aria-label="Loading Safkat's Portfolio">
+        <div class="loader-bg" aria-hidden="true">
+            <div class="loader-aurora orb-1"></div>
+            <div class="loader-aurora orb-2"></div>
+            <div class="loader-grid-lines"></div>
+        </div>
+
+        <button id="skipLoaderBtn" class="loader-skip-btn" type="button" aria-label="Skip Loading Animation">
+            <span>Skip</span>
+            <i class="fas fa-chevron-right ml-1"></i>
+            <i class="fas fa-chevron-right" style="margin-left: -5px;"></i>
+        </button>
+
+        <div class="loader-content">
+            <div class="loader-brand-badge">
+                <span class="brand-avatar-dot"></span>
+                <span class="brand-text">Safkat Islam Niloy</span>
+                <span class="brand-tag">PORTFOLIO</span>
+            </div>
+
+            <div class="loader-runner-stage" id="runnerStage">
+                <!-- Speed streaks passing behind runner -->
+                <div class="runner-speed-lines" aria-hidden="true">
+                    <span class="streak streak-1"></span>
+                    <span class="streak streak-2"></span>
+                    <span class="streak streak-3"></span>
+                    <span class="streak streak-4"></span>
+                    <span class="streak streak-5"></span>
+                </div>
+
+                <!-- Track Distance Markers -->
+                <div class="track-marker start-marker" aria-hidden="true">
+                    <span class="marker-label">START</span>
+                </div>
+                <div class="track-marker finish-marker" id="finishGate" aria-hidden="true">
+                    <div class="finish-ribbon"><span>FINISH</span></div>
+                    <div class="finish-post"></div>
+                </div>
+
+                <!-- Dynamic Runner with Real-Time Progress Sprint, Ghost Trails & Dust -->
+                <div class="runner-character-wrap" id="runnerCharacterWrap" style="--run-progress: 0;">
+                    <!-- Phantom Speed Ghost Echoes -->
+                    <div class="runner-ghost-trail ghost-2" aria-hidden="true"></div>
+                    <div class="runner-ghost-trail ghost-1" aria-hidden="true"></div>
+
+                    <!-- High-Speed Sprint Cadence & Kinematics -->
+                    <div class="runner-body-cadence" id="runnerBodyCadence">
+                        <img src="assets/imgs/runner.png" alt="Safkat sprinting forward" class="runner-avatar-img" id="runnerImg">
+                    </div>
+
+                    <!-- Contact ground shadow -->
+                    <div class="runner-ground-shadow"></div>
+
+                    <!-- Foot-strike particle / dust kick -->
+                    <div class="runner-dust-fx" aria-hidden="true">
+                        <span class="dust-particle d1"></span>
+                        <span class="dust-particle d2"></span>
+                        <span class="dust-particle d3"></span>
+                    </div>
+                </div>
+
+                <!-- Ground track with moving road lanes -->
+                <div class="runner-floor-track" aria-hidden="true">
+                    <div class="track-dashed-lanes"></div>
+                    <div class="track-light-bar"></div>
+                </div>
+            </div>
+
+            <!-- Liquid Glass Telemetry Capsule -->
+            <div class="loader-telemetry-card">
+                <div class="telemetry-header">
+                    <div class="telemetry-status">
+                        <span class="pulse-indicator"></span>
+                        <span id="loaderStatusText" class="status-msg">Initializing workspace...</span>
+                    </div>
+                    <span id="loaderPercentage" class="telemetry-percent">0%</span>
+                </div>
+
+                <div class="loader-progress-track">
+                    <div id="loaderProgressBar" class="loader-progress-bar">
+                        <span class="progress-glow-head"></span>
+                    </div>
+                </div>
+
+                <div class="telemetry-footer">
+                    <span class="loader-hint"><kbd>Space</kbd> or click to skip</span>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Hidden SVG Filters for True Bezel Refraction (liquid-glass-ui skill) -->
     <svg width="0" height="0" class="liquid-glass-svg-filters" style="position: absolute; pointer-events: none; opacity: 0; z-index: -1;">
@@ -283,63 +380,86 @@
             <h6 class="section-title mb-6">SKILLS &amp; TECHNOLOGIES</h6>
             <!-- row -->
             <div class="row">
+                <!-- Card 1: Languages -->
                 <div class="col-md-6 col-lg-3 mb-4">
-                    <div class="service-card p-4">
-                        <div class="body">
-                            <img src="assets/imgs/c++.jpg" alt="Programming Languages" class="icon">
-                            <h6 class="title">Languages</h6>
-                            <p class="subtitle mb-2">C / C++, C#, Python, SQL</p>
-                            <div>
-                                <span class="badge badge-pill badge-primary">C / C++</span>
-                                <span class="badge badge-pill badge-primary">C#</span>
-                                <span class="badge badge-pill badge-secondary">Python</span>
-                                <span class="badge badge-pill badge-secondary">SQL</span>
+                    <div class="skill-card text-left">
+                        <div class="skill-card-header">
+                            <div class="skill-icon-box">
+                                <i class="fas fa-code"></i>
                             </div>
+                            <span class="skill-category-tag">Core &amp; Logic</span>
+                        </div>
+                        <h5 class="skill-title">Languages</h5>
+                        <p class="skill-desc">High-performance problem solving and strongly typed systems.</p>
+                        <div class="skill-divider"></div>
+                        <div class="skill-pill-cloud">
+                            <span class="skill-pill"><i class="fas fa-terminal"></i> C / C++</span>
+                            <span class="skill-pill"><i class="fab fa-windows"></i> C#</span>
+                            <span class="skill-pill"><i class="fab fa-python"></i> Python</span>
+                            <span class="skill-pill"><i class="fas fa-database"></i> SQL</span>
                         </div>
                     </div>
                 </div>
+
+                <!-- Card 2: Backend & .NET -->
                 <div class="col-md-6 col-lg-3 mb-4">
-                    <div class="service-card p-4">
-                        <div class="body">
-                            <img src="assets/imgs/java.svg" alt="Backend & .NET" class="icon">
-                            <h6 class="title">Backend &amp; .NET</h6>
-                            <p class="subtitle mb-2">ASP.NET Core, EF Core, REST APIs, PHP</p>
-                            <div>
-                                <span class="badge badge-pill badge-primary">ASP.NET Core</span>
-                                <span class="badge badge-pill badge-primary">EF Core</span>
-                                <span class="badge badge-pill badge-secondary">JWT</span>
-                                <span class="badge badge-pill badge-secondary">PHP</span>
+                    <div class="skill-card text-left">
+                        <div class="skill-card-header">
+                            <div class="skill-icon-box">
+                                <i class="fas fa-server"></i>
                             </div>
+                            <span class="skill-category-tag">Enterprise &amp; API</span>
+                        </div>
+                        <h5 class="skill-title">Backend &amp; .NET</h5>
+                        <p class="skill-desc">RESTful services, ORM modeling, and clean architectures.</p>
+                        <div class="skill-divider"></div>
+                        <div class="skill-pill-cloud">
+                            <span class="skill-pill"><i class="fas fa-cubes"></i> ASP.NET Core</span>
+                            <span class="skill-pill"><i class="fas fa-stream"></i> EF Core</span>
+                            <span class="skill-pill"><i class="fas fa-key"></i> JWT Auth</span>
+                            <span class="skill-pill"><i class="fab fa-php"></i> PHP</span>
                         </div>
                     </div>
                 </div>
+
+                <!-- Card 3: Web & Tools -->
                 <div class="col-md-6 col-lg-3 mb-4">
-                    <div class="service-card p-4">
-                        <div class="body">
-                            <img src="assets/imgs/html.svg" alt="Web & Tools" class="icon">
-                            <h6 class="title">Web &amp; Tools</h6>
-                            <p class="subtitle mb-2">HTML5, CSS3, JavaScript, AJAX, Git</p>
-                            <div>
-                                <span class="badge badge-pill badge-primary">HTML / CSS</span>
-                                <span class="badge badge-pill badge-primary">JavaScript</span>
-                                <span class="badge badge-pill badge-secondary">AJAX</span>
-                                <span class="badge badge-pill badge-secondary">Git</span>
+                    <div class="skill-card text-left">
+                        <div class="skill-card-header">
+                            <div class="skill-icon-box">
+                                <i class="fas fa-laptop-code"></i>
                             </div>
+                            <span class="skill-category-tag">Frontend &amp; Flow</span>
+                        </div>
+                        <h5 class="skill-title">Web &amp; Tools</h5>
+                        <p class="skill-desc">Interactive responsive UIs, glassmorphic styling, and git.</p>
+                        <div class="skill-divider"></div>
+                        <div class="skill-pill-cloud">
+                            <span class="skill-pill"><i class="fab fa-html5"></i> HTML5 / CSS3</span>
+                            <span class="skill-pill"><i class="fab fa-js"></i> JavaScript</span>
+                            <span class="skill-pill"><i class="fas fa-exchange-alt"></i> AJAX</span>
+                            <span class="skill-pill"><i class="fab fa-git-alt"></i> Git &amp; GitHub</span>
                         </div>
                     </div>
                 </div>
+
+                <!-- Card 4: Databases & Architecture -->
                 <div class="col-md-6 col-lg-3 mb-4">
-                    <div class="service-card p-4">
-                        <div class="body">
-                            <img src="assets/imgs/database.svg" alt="Databases & Architecture" class="icon">
-                            <h6 class="title">Databases &amp; Arch</h6>
-                            <p class="subtitle mb-2">MySQL, SQL Server, Layered Architecture</p>
-                            <div>
-                                <span class="badge badge-pill badge-primary">MySQL</span>
-                                <span class="badge badge-pill badge-primary">SQL Server</span>
-                                <span class="badge badge-pill badge-secondary">Swagger</span>
-                                <span class="badge badge-pill badge-secondary">AutoMapper</span>
+                    <div class="skill-card text-left">
+                        <div class="skill-card-header">
+                            <div class="skill-icon-box">
+                                <i class="fas fa-database"></i>
                             </div>
+                            <span class="skill-category-tag">Data &amp; Design</span>
+                        </div>
+                        <h5 class="skill-title">Databases &amp; Arch</h5>
+                        <p class="skill-desc">Relational schemas, query tuning, and documentation.</p>
+                        <div class="skill-divider"></div>
+                        <div class="skill-pill-cloud">
+                            <span class="skill-pill"><i class="fas fa-table"></i> MySQL</span>
+                            <span class="skill-pill"><i class="fas fa-server"></i> SQL Server</span>
+                            <span class="skill-pill"><i class="fas fa-book"></i> Swagger</span>
+                            <span class="skill-pill"><i class="fas fa-random"></i> AutoMapper</span>
                         </div>
                     </div>
                 </div>
@@ -857,7 +977,7 @@
     <script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
 
     <!-- Main Interactive Script -->
-    <script src="assets/js/main.js"></script>
+    <script src="assets/js/main.js?v=sprint2"></script>
 
 </body>
 
