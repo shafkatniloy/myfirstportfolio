@@ -119,13 +119,6 @@ module.exports = async function handler(req, res) {
         });
     }
 
-    if (!apiKey.startsWith('AIza') || apiKey.length < 30) {
-        return res.status(401).json({
-            error: `The GEMINI_API_KEY configured in Vercel is incomplete (received ${apiKey.length} characters starting with "${apiKey.slice(0, 4)}..."). In Google AI Studio, click the Copy button next to your key to copy the full 39-character key starting with "AIzaSy".`,
-            fallback: false
-        });
-    }
-
     // 3. Parse Request Payload
     let body = req.body;
     if (typeof body === 'string') {
@@ -178,17 +171,26 @@ module.exports = async function handler(req, res) {
 
     for (const model of CANDIDATE_MODELS) {
         try {
-            // Attempt 1: Standard generateContent endpoint
-            const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${encodeURIComponent(apiKey.trim())}`;
-
-            const response = await fetch(url, {
+            // Attempt 1: Standard generateContent via x-goog-api-key header
+            let response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'x-goog-api-key': apiKey.trim()
+                    'x-goog-api-key': apiKey
                 },
                 body: JSON.stringify(requestPayload)
             });
+
+            // If header was rejected, retry with query parameter ?key=
+            if (!response.ok && (response.status === 401 || response.status === 403)) {
+                response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${encodeURIComponent(apiKey)}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(requestPayload)
+                });
+            }
 
             if (response.ok) {
                 const data = await response.json();
@@ -204,12 +206,11 @@ module.exports = async function handler(req, res) {
             }
 
             // Attempt 2: Interactions API endpoint (for 2026 model revisions)
-            const interactionsUrl = `https://generativelanguage.googleapis.com/v1beta/interactions?key=${encodeURIComponent(apiKey.trim())}`;
-            const interRes = await fetch(interactionsUrl, {
+            let interRes = await fetch('https://generativelanguage.googleapis.com/v1beta/interactions', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'x-goog-api-key': apiKey.trim(),
+                    'x-goog-api-key': apiKey,
                     'Api-Revision': '2026-05-20'
                 },
                 body: JSON.stringify({
@@ -218,6 +219,21 @@ module.exports = async function handler(req, res) {
                     system_instruction: SYSTEM_PROMPT
                 })
             });
+
+            if (!interRes.ok && (interRes.status === 401 || interRes.status === 403)) {
+                interRes = await fetch(`https://generativelanguage.googleapis.com/v1beta/interactions?key=${encodeURIComponent(apiKey)}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Api-Revision': '2026-05-20'
+                    },
+                    body: JSON.stringify({
+                        model: model,
+                        input: userMessage,
+                        system_instruction: SYSTEM_PROMPT
+                    })
+                });
+            }
 
             if (interRes.ok) {
                 const interData = await interRes.json();
@@ -241,7 +257,7 @@ module.exports = async function handler(req, res) {
             if (response.status === 403 || response.status === 401) {
                 return res.status(401).json({
                     error: `Gemini API authentication failed: ${errMsg}`,
-                    fallback: true
+                    fallback: false
                 });
             }
         } catch (fetchErr) {
