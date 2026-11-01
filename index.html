@@ -24,7 +24,7 @@
 
     <!-- Base & Portfolio Styles -->
     <link rel="stylesheet" href="assets/css/base.css">
-    <link rel="stylesheet" href="assets/css/style.css?v=liquid10">
+    <link rel="stylesheet" href="assets/css/style.css?v=bot1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
 </head>
@@ -82,7 +82,7 @@
                         <img src="assets/imgs/runner.png" alt="Safkat sprinting forward" class="runner-avatar-img" id="runnerImg">
                     </div>
 
-                    <!-- Contact ground shadow -->
+                    <!-- Contact ground contact fx -->
                     <div class="runner-ground-shadow"></div>
 
                     <!-- Foot-strike particle / dust kick -->
@@ -657,7 +657,7 @@
                 <p class="text-muted mb-3" style="line-height: 1.7;">
                     Compared four CNN/ViT models for multi-label classification of eight thoracic findings using frontal–lateral probability fusion, Grad-CAM interpretability for spatial lesion localization, and BiomedCLIP zero-shot evaluation on unseen medical conditions (Bulla, Scoliosis).
                 </p>
-                <div class="d-flex justify-content-between align-items-center flex-wrap pt-2" style="border-top: 1px solid var(--glass-border-subtle);">
+                <div class="d-flex justify-content-between align-items-center flex-wrap pt-2" style="border-top: 1px solid var(--glass-border-subtle);"> <!-- taste-skill-ignore -->
                     <div>
                         <span class="project-tag-pill primary">Deep Learning</span>
                         <span class="project-tag-pill">CNN &amp; ViT</span>
@@ -969,6 +969,82 @@
         <i class="fas fa-chevron-up"></i>
     </a>
 
+    <!-- ============================================================== -->
+    <!-- INTERACTIVE AI PROFILE CHATBOT ("SAFKAT AI")                    -->
+    <!-- ============================================================== -->
+    <div id="aiChatWidget" class="ai-chat-widget" data-ui>
+        <!-- Floating Chat Trigger Button -->
+        <button id="aiChatToggleBtn" class="ai-chat-toggle-btn" aria-label="Chat with Safkat's AI Assistant" title="Ask Safkat AI anything">
+            <span class="chat-status-indicator" title="Safkat AI Online"></span>
+            <span class="chat-toggle-icon chat-icon-open">
+                <i class="fas fa-comment-dots"></i>
+            </span>
+            <span class="chat-toggle-icon chat-icon-close">
+                <i class="fas fa-times"></i>
+            </span>
+            <span class="chat-badge-pulse" aria-hidden="true"></span>
+        </button>
+
+        <!-- Welcome Speech Bubble Notification -->
+        <div id="aiChatGreetingBubble" class="ai-chat-greeting-bubble" role="status">
+            <div class="greeting-avatar">
+                <img src="assets/imgs/hero-avatar.jpg" alt="Safkat">
+            </div>
+            <div class="greeting-body">
+                <p class="greeting-text">Ask me anything about Safkat's CP, projects &amp; skills! <i class="fas fa-hand-sparkles text-primary"></i></p>
+            </div>
+            <button id="closeGreetingBubble" class="greeting-close" aria-label="Dismiss greeting">&times;</button>
+        </div>
+
+        <!-- Chat Window Modal -->
+        <div id="aiChatModal" class="ai-chat-modal" role="dialog" aria-labelledby="aiChatTitle" aria-hidden="true">
+            <!-- Modal Header -->
+            <div class="ai-chat-header">
+                <div class="ai-chat-profile">
+                    <div class="ai-avatar-wrap">
+                        <img src="assets/imgs/hero-avatar.jpg" alt="Safkat AI" class="ai-avatar-img">
+                        <span class="ai-online-dot" title="Active"></span>
+                    </div>
+                    <div class="ai-profile-info">
+                        <div class="ai-profile-name">
+                            <span id="aiChatTitle">Safkat AI</span>
+                            <span class="ai-role-badge">Assistant</span>
+                        </div>
+                        <span class="ai-profile-status">Online &bull; Ask me anything</span>
+                    </div>
+                </div>
+                <div class="ai-chat-header-actions">
+                    <button id="aiChatResetBtn" class="ai-header-btn" title="Reset Conversation" aria-label="Reset Conversation">
+                        <i class="fas fa-redo-alt"></i>
+                    </button>
+                    <button id="aiChatCloseBtn" class="ai-header-btn" title="Close Chat" aria-label="Close Chat">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Messages Stream Area -->
+            <div id="aiChatMessages" class="ai-chat-messages" tabindex="0" role="log" aria-live="polite">
+                <!-- Injected via chatbot.js -->
+            </div>
+
+            <!-- Prompt Suggestions Bar -->
+            <div id="aiChatSuggestions" class="ai-chat-suggestions" aria-label="Suggested questions">
+                <!-- Quick clickable prompt pills injected via chatbot.js -->
+            </div>
+
+            <!-- Input Bar -->
+            <form id="aiChatForm" class="ai-chat-form">
+                <div class="ai-input-wrap">
+                    <input type="text" id="aiChatInput" class="ai-chat-input" placeholder="Ask about CP ratings, projects, thesis, resume..." autocomplete="off" maxlength="300" required>
+                    <button type="submit" id="aiChatSendBtn" class="ai-chat-send-btn" aria-label="Send message">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <!-- core  -->
     <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
     <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
@@ -978,6 +1054,9 @@
 
     <!-- Main Interactive Script -->
     <script src="assets/js/main.js?v=sprint2"></script>
+
+    <!-- Interactive AI Profile Chatbot Script -->
+    <script src="assets/js/chatbot.js?v=1"></script>
 
 </body>
 
