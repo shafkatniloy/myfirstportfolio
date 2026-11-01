@@ -80,9 +80,11 @@ BEHAVIOR & TONE INSTRUCTIONS
 
 const CANDIDATE_MODELS = [
     process.env.GEMINI_MODEL,
+    'gemini-3.5-flash-lite',
+    'gemini-3.8-flash',
+    'gemini-3.1-flash-lite',
     'gemini-2.5-flash',
     'gemini-1.5-flash',
-    'gemini-2.0-flash',
     'gemini-2.5-flash-lite'
 ].filter(Boolean);
 
@@ -155,7 +157,6 @@ module.exports = async function handler(req, res) {
         },
         contents: contents,
         generationConfig: {
-            temperature: 0.6,
             maxOutputTokens: 900
         }
     };
@@ -165,12 +166,14 @@ module.exports = async function handler(req, res) {
 
     for (const model of CANDIDATE_MODELS) {
         try {
+            // Attempt 1: Standard generateContent endpoint
             const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${encodeURIComponent(apiKey.trim())}`;
 
             const response = await fetch(url, {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'x-goog-api-key': apiKey.trim()
                 },
                 body: JSON.stringify(requestPayload)
             });
@@ -186,20 +189,48 @@ module.exports = async function handler(req, res) {
                         source: 'gemini'
                     });
                 }
-            } else {
-                const errData = await response.json().catch(() => null);
-                const errMsg = errData?.error?.message || `HTTP ${response.status} from model ${model}`;
-                lastError = errMsg;
-                // If 404 (model not found) or 400 (model deprecated), continue to next fallback model
-                if (response.status === 404 || response.status === 400) {
-                    continue;
-                } else if (response.status === 403 || response.status === 401) {
-                    // API key permission or quota issue
-                    return res.status(401).json({
-                        error: `Gemini API authentication failed: ${errMsg}`,
-                        fallback: true
+            }
+
+            // Attempt 2: Interactions API endpoint (for 2026 model revisions)
+            const interactionsUrl = `https://generativelanguage.googleapis.com/v1beta/interactions?key=${encodeURIComponent(apiKey.trim())}`;
+            const interRes = await fetch(interactionsUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'x-goog-api-key': apiKey.trim(),
+                    'Api-Revision': '2026-05-20'
+                },
+                body: JSON.stringify({
+                    model: model,
+                    input: userMessage,
+                    system_instruction: SYSTEM_PROMPT
+                })
+            });
+
+            if (interRes.ok) {
+                const interData = await interRes.json();
+                const interText = interData?.output_text || 
+                    interData?.steps?.[interData.steps.length - 1]?.content?.[0]?.text;
+
+                if (interText && interText.trim()) {
+                    return res.status(200).json({
+                        reply: interText.trim(),
+                        model: model,
+                        source: 'gemini-interactions'
                     });
                 }
+            }
+
+            // If neither succeeded, record error and try next model
+            const errData = await response.json().catch(() => null);
+            const errMsg = errData?.error?.message || `HTTP ${response.status} from model ${model}`;
+            lastError = errMsg;
+
+            if (response.status === 403 || response.status === 401) {
+                return res.status(401).json({
+                    error: `Gemini API authentication failed: ${errMsg}`,
+                    fallback: true
+                });
             }
         } catch (fetchErr) {
             lastError = fetchErr.message || String(fetchErr);
