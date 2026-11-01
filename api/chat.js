@@ -106,11 +106,23 @@ module.exports = async function handler(req, res) {
     }
 
     // 2. Validate API Key
-    const apiKey = process.env.GEMINI_API_KEY;
-    if (!apiKey || !apiKey.trim()) {
+    let apiKey = (process.env.GEMINI_API_KEY || '').trim();
+    apiKey = apiKey.replace(/^["']|["']$/g, '').trim();
+    if (apiKey.startsWith('GEMINI_API_KEY=')) {
+        apiKey = apiKey.replace(/^GEMINI_API_KEY=/, '').trim();
+    }
+
+    if (!apiKey) {
         return res.status(503).json({
             error: 'GEMINI_API_KEY is not configured on Vercel environment variables.',
-            fallback: true
+            fallback: false
+        });
+    }
+
+    if (!apiKey.startsWith('AIza') || apiKey.length < 30) {
+        return res.status(401).json({
+            error: `The GEMINI_API_KEY configured in Vercel is incomplete (received ${apiKey.length} characters starting with "${apiKey.slice(0, 4)}..."). In Google AI Studio, click the Copy button next to your key to copy the full 39-character key starting with "AIzaSy".`,
+            fallback: false
         });
     }
 
