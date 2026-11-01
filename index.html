@@ -17,10 +17,10 @@
     <title>Safkat Islam Niloy | Portfolio</title>
     <!-- font icons -->
     <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
-    <!-- Google Fonts: Outfit & Poppins -->
+    <!-- Google Fonts: Outfit, Poppins & Hind Siliguri (for crisp Bengali typography) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Base & Portfolio Styles -->
     <link rel="stylesheet" href="assets/css/base.css">
@@ -140,6 +140,12 @@
             </filter>
         </defs>
     </svg>
+
+    <!-- Interactive Mouse Motion Background Mesh & Ambient Glow -->
+    <div id="bgMotionContainer" class="bg-motion-container" aria-hidden="true">
+        <div id="mouseGlowFollower" class="mouse-glow-follower"></div>
+        <canvas id="bgMotionCanvas" class="bg-motion-canvas"></canvas>
+    </div>
 
     <!-- Page Navbar -->
     <nav class="custom-navbar" data-spy="affix" data-offset-top="20">
@@ -1057,6 +1063,9 @@
 
     <!-- Interactive AI Profile Chatbot Script (100% Google Gemini AI) -->
     <script src="assets/js/chatbot.js?v=gemini1"></script>
+
+    <!-- Interactive Mouse Motion Background Engine -->
+    <script src="assets/js/bg-motion.js?v=1"></script>
 
 </body>
 

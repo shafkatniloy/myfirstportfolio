@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap");
 
 /* ==========================================================================
    CSS VARIABLES: THEME COLORS & GLASS UI
@@ -225,6 +225,7 @@ h1, h2, h3, h4, h5, h6 {
 
 p, .subtitle, .font-weight-normal {
   color: var(--text-secondary);
+  font-weight: 400 !important;
 }
 
 .text-muted {
@@ -237,7 +238,7 @@ p, .subtitle, .font-weight-normal {
 .header {
   position: relative;
   background-image: none !important;
-  background: var(--bg-color) !important;
+  background: transparent !important;
   height: auto !important;
   min-height: 58vh !important;
   padding: 125px 15px 45px 15px !important;
@@ -246,6 +247,7 @@ p, .subtitle, .font-weight-normal {
   justify-content: center;
   overflow: hidden;
   transition: background-color 0.4s ease;
+  z-index: 1;
 }
 
 /* Ambient Radial Lights (Aurora Glow) */
@@ -1834,14 +1836,26 @@ p, .subtitle, .font-weight-normal {
 }
 
 .blog-card-title {
-  font-size: 1.08rem;
-  line-height: 1.35;
+  font-family: "Hind Siliguri", "Noto Sans Bengali", "SolaimanLipi", "Kalpurush", "Outfit", sans-serif !important;
+  font-size: 1.15rem;
+  font-weight: 700 !important;
+  line-height: 1.45;
+  color: var(--text-primary) !important;
 }
 
 .blog-card-body p {
-  font-size: 0.88rem !important;
-  line-height: 1.6 !important;
-  margin-bottom: 8px !important;
+  font-family: "Hind Siliguri", "Noto Sans Bengali", "SolaimanLipi", "Kalpurush", sans-serif !important;
+  font-size: 0.94rem !important;
+  font-weight: 450 !important;
+  line-height: 1.75 !important;
+  color: var(--text-primary) !important;
+  margin-bottom: 12px !important;
+  letter-spacing: 0.15px !important;
+  opacity: 1 !important;
+}
+
+[data-theme="dark"] .blog-card-body p {
+  color: #e2e8f0 !important;
 }
 
 /* 10. Contact Section & Form */
@@ -3706,4 +3720,59 @@ body.loader-active {
     bottom: 70px;
     max-width: 230px;
   }
+}
+
+/* ==========================================================================
+   INTERACTIVE MOUSE MOTION BACKGROUND ENGINE
+   ========================================================================== */
+.bg-motion-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  contain: strict;
+}
+
+.bg-motion-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Ambient Radial Cursor Spotlight Follower */
+.mouse-glow-follower {
+  position: absolute;
+  top: -300px;
+  left: -300px;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(85px);
+  opacity: 0;
+  will-change: transform, opacity;
+  transition: opacity 0.4s ease;
+  background: radial-gradient(circle, rgba(var(--primary-rgb), 0.20) 0%, rgba(var(--primary-rgb), 0.06) 42%, transparent 70%);
+}
+
+.mouse-glow-follower.active {
+  opacity: 1;
+}
+
+[data-theme="light"] .mouse-glow-follower {
+  background: radial-gradient(circle, rgba(var(--primary-rgb), 0.12) 0%, rgba(var(--primary-rgb), 0.03) 42%, transparent 70%);
+  filter: blur(75px);
+}
+
+/* Ensure foreground sections sit above the motion mesh */
+.section, .section-sm, footer, .footer, .custom-navbar {
+  position: relative;
+  z-index: 1;
 }
