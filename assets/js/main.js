@@ -265,8 +265,8 @@ $(document).ready(function () {
         setTimeout(function () {
             currentIndex = index;
             $aboutImg.attr('src', images[currentIndex]);
-            $dots.removeClass('active');
-            $dots.eq(currentIndex).addClass('active');
+            $dots.removeClass('active').attr('aria-selected', 'false');
+            $dots.eq(currentIndex).addClass('active').attr('aria-selected', 'true');
             $aboutImg.removeClass('fade-out');
         }, 300);
     }

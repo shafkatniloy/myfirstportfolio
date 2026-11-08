@@ -31,6 +31,9 @@
 
 <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
 
+    <!-- Accessibility: Skip to Main Content Link -->
+    <a href="#main-content" class="skip-to-content sr-only sr-only-focusable">Skip to main content</a>
+
     <!-- High-Octane Runner Preloader -->
     <div id="pageLoader" class="page-loader" role="dialog" aria-modal="true" aria-label="Loading Safkat's Portfolio">
         <div class="loader-bg" aria-hidden="true">
@@ -194,12 +197,12 @@
                     <div id="paletteDropdown" class="glass-palette-dropdown">
                         <span class="palette-title">Theme Color</span>
                         <div class="color-options">
-                            <span class="color-swatch active" data-color="purple" style="background: #695aa6;" title="Royal Purple"></span>
-                            <span class="color-swatch" data-color="blue" style="background: #2563eb;" title="Electric Blue"></span>
-                            <span class="color-swatch" data-color="emerald" style="background: #059669;" title="Emerald Green"></span>
-                            <span class="color-swatch" data-color="rose" style="background: #e11d48;" title="Ruby Rose"></span>
-                            <span class="color-swatch" data-color="amber" style="background: #d97706;" title="Sunset Amber"></span>
-                            <span class="color-swatch" data-color="cyan" style="background: #0891b2;" title="Cyber Cyan"></span>
+                            <button type="button" class="color-swatch active" data-color="purple" style="background: #695aa6;" title="Royal Purple" aria-label="Set theme to Royal Purple"></button>
+                            <button type="button" class="color-swatch" data-color="blue" style="background: #2563eb;" title="Electric Blue" aria-label="Set theme to Electric Blue"></button>
+                            <button type="button" class="color-swatch" data-color="emerald" style="background: #059669;" title="Emerald Green" aria-label="Set theme to Emerald Green"></button>
+                            <button type="button" class="color-swatch" data-color="rose" style="background: #e11d48;" title="Ruby Rose" aria-label="Set theme to Ruby Rose"></button>
+                            <button type="button" class="color-swatch" data-color="amber" style="background: #d97706;" title="Sunset Amber" aria-label="Set theme to Sunset Amber"></button>
+                            <button type="button" class="color-swatch" data-color="cyan" style="background: #0891b2;" title="Cyber Cyan" aria-label="Set theme to Cyber Cyan"></button>
                         </div>
                     </div>
                 </div>
@@ -277,6 +280,8 @@
         </div>
     </header><!-- end of page header -->
 
+    <main id="main-content">
+
     <!-- about section -->
     <section class="section pt-0" id="about">
         <!-- container -->
@@ -284,12 +289,12 @@
             <!-- about wrapper -->
             <div class="about">
                 <div class="about-img-holder">
-                    <img src="assets/imgs/m4.jpg" class="about-img" id="aboutImage" alt="mannn">
-                    <div class="dots-container">
-                        <span class="dot active"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
+                    <img src="assets/imgs/m4.jpg" class="about-img" id="aboutImage" alt="Safkat Islam Niloy">
+                    <div class="dots-container" role="tablist" aria-label="Photo Slideshow Controls">
+                        <button type="button" class="dot active" role="tab" aria-selected="true" aria-label="View photo 1"></button>
+                        <button type="button" class="dot" role="tab" aria-selected="false" aria-label="View photo 2"></button>
+                        <button type="button" class="dot" role="tab" aria-selected="false" aria-label="View photo 3"></button>
+                        <button type="button" class="dot" role="tab" aria-selected="false" aria-label="View photo 4"></button>
                     </div>
                 </div>
                 <div class="about-caption">
@@ -304,8 +309,9 @@
                         As a software developer, I build scalable backend architectures using <strong>ASP.NET Core (.NET), C#, EF Core, SQL Server, and PHP</strong>. Currently, I am also conducting machine learning thesis research on <strong>Multi-Label Chest X-Ray Classification</strong> utilizing CNN/ViT architectures, Grad-CAM interpretability, and BiomedCLIP zero-shot evaluation.
                     </p>
                     <a href="https://drive.google.com/file/d/1ME4yloB35hPF2ta6VrHtaOP43JMWtvg4/view?usp=sharing"
-                        target="_blank">
-                        <button class="btn-rounded btn btn-outline-primary mt-3"><i class="fas fa-file-download mr-1"></i> Download CV</button></a>
+                        target="_blank" rel="noopener noreferrer" class="btn btn-rounded btn-outline-primary mt-3">
+                        <i class="fas fa-file-download mr-1"></i> Download CV
+                    </a>
                 </div>
             </div><!-- end of about wrapper -->
         </div><!-- end of container -->
@@ -345,36 +351,29 @@
             <!-- row -->
             <div class="card-container">
                 <!-- Card 1 (University) -->
-                <div class="card">
-                    <div class="button"
-                        onclick="window.open('https://www.nstu.edu.bd/department.php?name=cste', '_blank');">
-                        <img src="assets/imgs/education/uni.png" alt="NSTU Logo" class="card-logo">
-                        <strong>Noakhali Science and Technology University</strong>
-                        <div class="card__body">B.Sc. (Engg.) in CSTE</div>
-                        <div class="badge badge-pill badge-primary mb-2">CGPA: 3.65 / 4.00</div>
-                        <span>2022 - 2026</span>
-                    </div>
-                </div>
+                <a href="https://www.nstu.edu.bd/department.php?name=cste" target="_blank" rel="noopener noreferrer" class="card education-card" aria-label="Noakhali Science and Technology University - B.Sc. in CSTE">
+                    <img src="assets/imgs/education/uni.png" alt="NSTU Logo" class="card-logo">
+                    <strong>Noakhali Science and Technology University</strong>
+                    <div class="card__body">B.Sc. (Engg.) in CSTE</div>
+                    <div class="badge badge-pill badge-primary mb-2">CGPA: 3.65 / 4.00</div>
+                    <span>2022 - 2026</span>
+                </a>
 
                 <!-- Card 2 (College) -->
-                <div class="card">
-                    <div class="button" onclick="window.open('https://dmrc.edu.bd/', '_blank');">
-                        <img src="assets/imgs/education/clg.png" alt="DMRC Logo" class="card-logo">
-                        <strong>Dr. Mahbubur Rahman Mollah College</strong>
-                        <div class="card__body">Higher Secondary Certificate (HSC)</div>
-                        <span>2018 - 2020</span>
-                    </div>
-                </div>
+                <a href="https://dmrc.edu.bd/" target="_blank" rel="noopener noreferrer" class="card education-card" aria-label="Dr. Mahbubur Rahman Mollah College - HSC">
+                    <img src="assets/imgs/education/clg.png" alt="DMRC Logo" class="card-logo">
+                    <strong>Dr. Mahbubur Rahman Mollah College</strong>
+                    <div class="card__body">Higher Secondary Certificate (HSC)</div>
+                    <span>2018 - 2020</span>
+                </a>
 
                 <!-- Card 3 (School) -->
-                <div class="card">
-                    <div class="button" onclick="window.open('https://ekhlasuddinsc.com/', '_blank');">
-                        <img src="assets/imgs/education/schl.png" alt="School Logo" class="card-logo">
-                        <strong>Hazi MD. Ekhlasuddin Bhuiyan School &amp; College</strong>
-                        <div class="card__body">Secondary School Certificate (SSC)</div>
-                        <span>2012 - 2018</span>
-                    </div>
-                </div>
+                <a href="https://ekhlasuddinsc.com/" target="_blank" rel="noopener noreferrer" class="card education-card" aria-label="Hazi MD. Ekhlasuddin Bhuiyan School &amp; College - SSC">
+                    <img src="assets/imgs/education/schl.png" alt="School Logo" class="card-logo">
+                    <strong>Hazi MD. Ekhlasuddin Bhuiyan School &amp; College</strong>
+                    <div class="card__body">Secondary School Certificate (SSC)</div>
+                    <span>2012 - 2018</span>
+                </a>
             </div>
         </div>
     </section><!-- end of education section -->
@@ -645,14 +644,14 @@
             </div>
 
             <!-- Undergraduate Thesis Box -->
-            <div class="thesis-box mb-5" onclick="window.open('https://drive.google.com/file/d/131T7xRat_Lf8NZ7WwlqTMygQengB0CFq/view', '_blank');" title="Click to view Undergraduate Thesis Paper">
+            <div class="thesis-box mb-5">
                 <div class="d-flex justify-content-between align-items-center flex-wrap mb-2">
                     <h5 class="font-weight-bold mb-1 text-primary">
                         <i class="fas fa-microscope mr-2"></i> Undergraduate Thesis
                     </h5>
                     <div>
                         <span class="badge badge-pill badge-secondary mr-2">Research &amp; Deep Learning</span>
-                        <a href="https://drive.google.com/file/d/131T7xRat_Lf8NZ7WwlqTMygQengB0CFq/view" target="_blank" class="btn btn-outline-primary btn-sm rounded" onclick="event.stopPropagation();">
+                        <a href="https://drive.google.com/file/d/131T7xRat_Lf8NZ7WwlqTMygQengB0CFq/view" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm rounded" aria-label="View Undergraduate Thesis Paper on Google Drive">
                             <i class="fas fa-external-link-alt mr-1"></i> View Paper
                         </a>
                     </div>
@@ -671,9 +670,9 @@
                         <span class="project-tag-pill">Grad-CAM</span>
                         <span class="project-tag-pill">Python</span>
                     </div>
-                    <span class="text-primary font-weight-bold small mt-2 mt-sm-0">
+                    <a href="https://drive.google.com/file/d/131T7xRat_Lf8NZ7WwlqTMygQengB0CFq/view" target="_blank" rel="noopener noreferrer" class="text-primary font-weight-bold small mt-2 mt-sm-0 thesis-read-link" aria-label="Read full thesis paper on Google Drive">
                         <i class="fas fa-file-pdf mr-1 text-danger"></i> Read on Google Drive <i class="fas fa-arrow-right ml-1"></i>
-                    </span>
+                    </a>
                 </div>
             </div>
 
@@ -809,8 +808,8 @@
 
             <!-- Direct Facebook Profile Link Button -->
             <div class="mt-4">
-                <a href="https://www.facebook.com/niloy.119" target="_blank">
-                    <button class="bbtn"><i class="fab fa-facebook mr-1"></i> View More Posts on Facebook (@niloy.119)</button>
+                <a href="https://www.facebook.com/niloy.119" target="_blank" rel="noopener noreferrer" class="bbtn d-inline-block">
+                    <i class="fab fa-facebook mr-1"></i> View More Posts on Facebook (@niloy.119)
                 </a>
             </div>
 
@@ -835,15 +834,19 @@
                 class="contact-form col-md-10 col-lg-8 m-auto">
                 <div class="form-row">
                     <div class="form-group col-sm-6">
+                        <label for="senderName" class="sr-only">Your Name</label>
                         <input type="text" name="name" id="senderName" class="form-control" placeholder="Your Name" required>
                     </div>
                     <div class="form-group col-sm-6">
+                        <label for="senderEmail" class="sr-only">Your Email</label>
                         <input type="email" name="email" id="senderEmail" class="form-control" required placeholder="Enter Your Email">
                     </div>
                     <div class="form-group col-sm-12">
+                        <label for="messageSubject" class="sr-only">Subject</label>
                         <input type="text" name="subject" id="messageSubject" class="form-control" placeholder="Subject" required>
                     </div>
                     <div class="form-group col-sm-12">
+                        <label for="messageContent" class="sr-only">Message</label>
                         <textarea name="message" id="messageContent" rows="6" class="form-control" placeholder="Write Something" required></textarea>
                     </div>
                     
@@ -875,43 +878,42 @@
         <div class="container text-center">
 
             <div class="wrapper">
-                <div class="button" onclick="window.open('https://www.facebook.com/niloy.119', '_blank');">
+                <a class="button" href="https://www.facebook.com/niloy.119" target="_blank" rel="noopener noreferrer" aria-label="Safkat on Facebook">
                     <div class="icon">
                         <i class="fab fa-facebook-f"></i>
                     </div>
                     <span>Facebook</span>
-                </div>
-                <div class="button"
-                    onclick="window.open('https://www.linkedin.com/in/safkat-islam-niloy-40423924b/', '_blank');">
+                </a>
+                <a class="button" href="https://www.linkedin.com/in/safkat-islam-niloy-40423924b/" target="_blank" rel="noopener noreferrer" aria-label="Safkat on LinkedIn">
                     <div class="icon">
                         <i class="fab fa-linkedin"></i>
                     </div>
                     <span>Linkedin</span>
-                </div>
-                <div class="button" onclick="window.open('https://www.instagram.com/real.redranger/', '_blank');">
+                </a>
+                <a class="button" href="https://www.instagram.com/real.redranger/" target="_blank" rel="noopener noreferrer" aria-label="Safkat on Instagram">
                     <div class="icon">
                         <i class="fab fa-instagram"></i>
                     </div>
                     <span>Instagram</span>
-                </div>
-                <div class="button" onclick="window.open('https://github.com/shafkatniloy', '_blank');">
+                </a>
+                <a class="button" href="https://github.com/shafkatniloy" target="_blank" rel="noopener noreferrer" aria-label="Safkat on GitHub">
                     <div class="icon">
                         <i class="fab fa-github-alt"></i>
                     </div>
                     <span>Github</span>
-                </div>
-                <div class="button" onclick="window.open('https://codeforces.com/profile/NOoobmasterSixT9', '_blank');">
+                </a>
+                <a class="button" href="https://codeforces.com/profile/NOoobmasterSixT9" target="_blank" rel="noopener noreferrer" aria-label="Safkat on Codeforces">
                     <div class="icon" style="font-family:Verdana, Geneva, Tahoma, sans-serif ">
-                        <a><b>CF</b></a>
-                        <i class=""></i>
+                        <b>CF</b>
                     </div>
                     <span>CodeForces</span>
-                </div>
+                </a>
             </div>
 
         </div>
 
     </section><!-- end of social section -->
+    </main><!-- end of main content -->
 
     <!-- footer -->
 
@@ -921,29 +923,17 @@
     <!-- footer -->
     <div class="container">
         <footer class="footer">
-            <p class="mb-0">Copyright
-                <script>document.write(new Date().getFullYear())</script> &copy; <a href="#"></a>follow the links <a
-                    href="#">to my social media</a>
+            <p class="mb-0">Copyright &copy;
+                <script>document.write(new Date().getFullYear())</script> Safkat Islam Niloy. Built with passion &amp; precision.
             </p>
 
-
             <!-- hitwebcounter Code START -->
-            <a> Total Visits Till Now </a>
-            <img src="https://hitwebcounter.com/counter/counter.php?page=14581888&style=0032&nbdigits=6&type=page&initCount=90"
-                title="NOT UNIQUE" Alt="PLEASE RELOAD" border="5" /></a>
-            <!-- hitwebcounter Code END  -->
-
-
-
-            <!-- <div class="social-links text-right m-auto ml-sm-auto">
-                <a href="https://www.linkedin.com/in/safkat-islam-niloy-40423924b/" class="link" target="_blank"><i class="ti-linkedin"></i></a>
-
-                <a href="https://www.facebook.com/niloy.119" class="link"><i class="ti-facebook"></i></a>
-                <a href="https://x.com/Niloy09723582" class="link"><i class="ti-twitter-alt"></i></a>
-                <a href="https://github.com/shafkatniloy" class="link"><i class="ti-github"></i></a>
-   
-                <a href="https://www.instagram.com/real.redranger/" class="link"><i class="ti-instagram"></i></a>
-            </div> -->
+            <div class="footer-counter mt-2">
+                <span class="small text-muted mr-1">Total Visits:</span>
+                <img src="https://hitwebcounter.com/counter/counter.php?page=14581888&style=0032&nbdigits=6&type=page&initCount=90"
+                    title="Total Site Visits" alt="Total Visitor Count" border="0" />
+            </div>
+            <!-- hitwebcounter Code END -->
         </footer>
     </div> <!-- end of page footer -->
 
@@ -959,19 +949,19 @@
             <div id="floatingPaletteDropdown" class="glass-palette-dropdown">
                 <span class="palette-title">Theme Color</span>
                 <div class="color-options">
-                    <span class="color-swatch active" data-color="purple" style="background: #695aa6;" title="Royal Purple"></span>
-                    <span class="color-swatch" data-color="blue" style="background: #2563eb;" title="Electric Blue"></span>
-                    <span class="color-swatch" data-color="emerald" style="background: #059669;" title="Emerald Green"></span>
-                    <span class="color-swatch" data-color="rose" style="background: #e11d48;" title="Ruby Rose"></span>
-                    <span class="color-swatch" data-color="amber" style="background: #d97706;" title="Sunset Amber"></span>
-                    <span class="color-swatch" data-color="cyan" style="background: #0891b2;" title="Cyber Cyan"></span>
+                    <button type="button" class="color-swatch active" data-color="purple" style="background: #695aa6;" title="Royal Purple" aria-label="Set theme to Royal Purple"></button>
+                    <button type="button" class="color-swatch" data-color="blue" style="background: #2563eb;" title="Electric Blue" aria-label="Set theme to Electric Blue"></button>
+                    <button type="button" class="color-swatch" data-color="emerald" style="background: #059669;" title="Emerald Green" aria-label="Set theme to Emerald Green"></button>
+                    <button type="button" class="color-swatch" data-color="rose" style="background: #e11d48;" title="Ruby Rose" aria-label="Set theme to Ruby Rose"></button>
+                    <button type="button" class="color-swatch" data-color="amber" style="background: #d97706;" title="Sunset Amber" aria-label="Set theme to Sunset Amber"></button>
+                    <button type="button" class="color-swatch" data-color="cyan" style="background: #0891b2;" title="Cyber Cyan" aria-label="Set theme to Cyber Cyan"></button>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Back to Top Button -->
-    <a href="#home" id="backToTop" class="back-to-top" title="Back to top">
+    <a href="#home" id="backToTop" class="back-to-top" title="Back to top" aria-label="Back to top">
         <i class="fas fa-chevron-up"></i>
     </a>
 
